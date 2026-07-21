@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC 개인채널 콘텐츠 참여보상 운영안내</title>
+  <meta name="description" content="AAC 선수 대상 개인채널 콘텐츠 참여보상 운영기준 요약 안내문">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FAFAF7;
+      --surface: #FFFFFF;
+      --surface-muted: #F3F2EE;
+      --ink: #0E1412;
+      --ink-2: #3A4340;
+      --ink-3: #6B7571;
+      --line: #E4E2DC;
+      --accent: #0D5F5A;
+      --accent-wash: #E8F0EE;
+      --s1: 4px;
+      --s2: 8px;
+      --s3: 12px;
+      --s4: 16px;
+      --s5: 20px;
+      --s6: 24px;
+      --s7: 28px;
+      --s8: 32px;
+      --s10: 40px;
+      --s12: 48px;
+      --s14: 56px;
+      --s16: 64px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--surface-muted); color: var(--ink); }
+    body {
+      font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+      padding: 0;
+      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      position: relative;
+      width: 794px;
+      height: 1123px;
+      margin: 0 0 var(--s8);
+      padding: var(--s12);
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .page:last-child { margin-bottom: 0; }
+    .capture-anchor { display: none; }
+    #show-page1:target ~ main #page-2 { display: none; }
+    #show-page2:target ~ main #page-1 { display: none; }
+    #show-page1:target ~ main .page,
+    #show-page2:target ~ main .page { margin: 0; }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1.25fr 1.15fr 0.9fr 0.55fr;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .meta-item {
+      min-width: 0;
+      padding: var(--s3) var(--s3) var(--s3) 0;
+      border-right: 1px solid var(--line);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 10px;
+      line-height: 1.45;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+
+    .meta-item + .meta-item { padding-left: var(--s3); }
+    .meta-item:last-child { border-right: 0; text-align: right; padding-right: 0; }
+    .meta-item strong { display: block; color: var(--ink); font-weight: 500; }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 60px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wordmark { display: block; width: 244px; height: auto; }
+    .doc-code {
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--ink-3);
+    }
+
+    .hero { padding: var(--s7) 0 var(--s6); }
+    .eyebrow {
+      margin: 0 0 var(--s3);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .display {
+      max-width: 640px;
+      margin: 0;
+      font-family: "Instrument Serif", "Times New Roman", serif;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+
+    .display em { color: var(--accent); font-weight: 400; }
+
+    h1 {
+      margin: var(--s4) 0 0;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .lead-rule {
+      display: grid;
+      grid-template-columns: 148px 1fr;
+      gap: var(--s6);
+      padding: var(--s4) 0;
+      border-top: 2px solid var(--accent);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lead-rule strong {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .lead-rule p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-2);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-top: var(--s6);
+      padding-bottom: var(--s3);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head span {
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 10px;
+      color: var(--ink-3);
+      letter-spacing: 0.08em;
+    }
+
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td { border-bottom: 1px solid var(--line); vertical-align: middle; }
+    th {
+      padding: var(--s3) var(--s2);
+      background: var(--surface-muted);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    td { padding: 10px var(--s2); font-size: 13px; line-height: 1.45; }
+    th:first-child, td:first-child { padding-left: 0; }
+    th:last-child, td:last-child { padding-right: 0; }
+    .type-col { width: 34%; }
+    .rule-col { width: 41%; color: var(--ink-2); }
+    .amount-col { width: 25%; text-align: right; }
+    .amount {
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: var(--s4);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .note {
+      padding: var(--s3) var(--s3) var(--s3) 0;
+      border-right: 1px solid var(--line);
+    }
+
+    .note + .note { padding-left: var(--s3); }
+    .note:last-child { border-right: 0; padding-right: 0; }
+    .note-label {
+      display: block;
+      margin-bottom: var(--s2);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+    }
+
+    .note strong { display: block; font-size: 14px; font-weight: 500; line-height: 1.35; }
+    .note p { margin: var(--s1) 0 0; font-size: 11px; line-height: 1.5; color: var(--ink-2); }
+
+    .timeline { margin-top: var(--s6); border-top: 1px solid var(--ink); }
+    .step {
+      display: grid;
+      grid-template-columns: 64px 188px 1fr;
+      min-height: 92px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step-no {
+      padding: var(--s4) 0;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .step-title { padding: var(--s4) var(--s4) var(--s4) 0; }
+    .step-title strong { display: block; font-size: 17px; font-weight: 500; }
+    .step-title time {
+      display: block;
+      margin-top: var(--s2);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 11px;
+      color: var(--ink-3);
+    }
+
+    .step-body {
+      padding: var(--s4) 0 var(--s4) var(--s4);
+      border-left: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-2);
+    }
+
+    .step-body strong { color: var(--ink); font-weight: 500; }
+
+    .conditions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: var(--s6);
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .condition {
+      min-height: 112px;
+      padding: var(--s4) var(--s4) var(--s4) 0;
+    }
+
+    .condition + .condition { padding-left: var(--s4); border-left: 1px solid var(--line); }
+    .condition h2 { margin: 0 0 var(--s3); font-size: 17px; font-weight: 500; }
+    .condition p { margin: 0; font-size: 13px; line-height: 1.65; color: var(--ink-2); }
+
+    footer {
+      position: absolute;
+      left: var(--s12);
+      right: var(--s12);
+      bottom: var(--s6);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--s6);
+      padding-top: var(--s3);
+      border-top: 1px solid var(--line);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 9px;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+      color: var(--ink-3);
+    }
+
+    footer strong { color: var(--ink); font-weight: 500; }
+    .receipt-rule { margin-top: var(--s5); }
+
+    @media print {
+      @page { size: A4 portrait; margin: 0; }
+      body { padding: 0; background: var(--paper); }
+      .page { margin: 0; page-break-after: always; }
+      .page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+  <span class="capture-anchor" id="show-page1" aria-hidden="true"></span>
+  <span class="capture-anchor" id="show-page2" aria-hidden="true"></span>
+  <main>
+    <section class="page" id="page-1" aria-label="보상 금액과 인정 조건">
+      <div class="meta" aria-label="문서 정보">
+        <div class="meta-item">Document<strong>Operating Guide</strong></div>
+        <div class="meta-item">Program<strong>AAC Content Reward</strong></div>
+        <div class="meta-item">Audience<strong>AAC Athletes</strong></div>
+        <div class="meta-item">Page<strong>01 / 02</strong></div>
+      </div>
+
+      <div class="brand-row">
+        <img class="wordmark" src="aac-wordmark-dark.png" alt="Athletics Athlete Club">
+        <div class="doc-code">AAC-CR · v1.0</div>
+      </div>
+
+      <header class="hero">
+        <p class="eyebrow">Personal channel · participation reward</p>
+        <p class="display">Participation,<br><em>clearly rewarded.</em></p>
+        <h1>개인채널 콘텐츠 참여보상</h1>
+      </header>
+
+      <section class="lead-rule" aria-label="운영 원칙">
+        <strong>공동게시가<br>원칙입니다.</strong>
+        <p>피드·릴스는 <b>@athleticsathleteclub</b> 공동게시가 실제 승인되어 공개된 경우 인정합니다. 다만 회사가 사전에 승인한 경우에는 개별·단독 업로드도 인정합니다.</p>
+      </section>
+
+      <div class="section-head">
+        <h2>건별 보상 기준</h2>
+        <span>AMOUNT · BEFORE TAX</span>
+      </div>
+
+      <table aria-label="콘텐츠 유형별 참여보상 금액">
+        <thead>
+          <tr><th class="type-col">콘텐츠 유형</th><th class="rule-col">인정 기준</th><th class="amount-col">건별 보상</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>사진 게시물 1–2장</td><td class="rule-col">공동게시 또는 사전 예외승인</td><td class="amount-col"><span class="amount">10,000원</span></td></tr>
+          <tr><td>사진 게시물 3–7장</td><td class="rule-col">공동게시 또는 사전 예외승인</td><td class="amount-col"><span class="amount">15,000원</span></td></tr>
+          <tr><td>사진 게시물 8장 이상</td><td class="rule-col">공동게시 또는 사전 예외승인</td><td class="amount-col"><span class="amount">20,000원</span></td></tr>
+          <tr><td>일반 릴스</td><td class="rule-col">공동게시 또는 사전 예외승인</td><td class="amount-col"><span class="amount">20,000원</span></td></tr>
+          <tr><td>유행 챌린지 릴스</td><td class="rule-col">회사가 사전 지정·승인한 챌린지</td><td class="amount-col"><span class="amount">25,000원</span></td></tr>
+          <tr><td>스토리 태그</td><td class="rule-col">계정 태그가 보이는 캡처 제출</td><td class="amount-col"><span class="amount">1,000원</span></td></tr>
+        </tbody>
+      </table>
+
+      <section class="notes" aria-label="보상 한도와 중복 기준">
+        <div class="note"><span class="note-label">DUPLICATION</span><strong>최고액 1건</strong><p>같은 콘텐츠는 가장 높은 한 항목만 인정합니다.</p></div>
+        <div class="note"><span class="note-label">STORY LIMIT</span><strong>월 10건</strong><p>스토리 태그 보상의 월별 한도입니다.</p></div>
+        <div class="note"><span class="note-label">MONTHLY LIMIT</span><strong>월 100,000원</strong><p>선수 1인 기준 시범운영 총 한도입니다.</p></div>
+      </section>
+
+      <footer>
+        <div><strong>Source</strong> · 11_AAC_개인채널_콘텐츠_참여보상_운영기준</div>
+        <div>요약본과 원문이 다를 경우 원문이 우선합니다.</div>
+      </footer>
+    </section>
+
+    <section class="page" id="page-2" aria-label="신청 및 정산 절차">
+      <div class="meta" aria-label="문서 정보">
+        <div class="meta-item">Document<strong>Operating Guide</strong></div>
+        <div class="meta-item">Program<strong>AAC Content Reward</strong></div>
+        <div class="meta-item">Audience<strong>AAC Athletes</strong></div>
+        <div class="meta-item">Page<strong>02 / 02</strong></div>
+      </div>
+
+      <div class="brand-row">
+        <img class="wordmark" src="aac-wordmark-dark.png" alt="Athletics Athlete Club">
+        <div class="doc-code">AAC-CR · v1.0</div>
+      </div>
+
+      <header class="hero">
+        <p class="eyebrow">Application · review · settlement</p>
+        <p class="display">Apply, review,<br><em>receive.</em></p>
+        <h1>신청 및 정산 절차</h1>
+      </header>
+
+      <section class="timeline" aria-label="신청 및 지급 네 단계">
+        <div class="step">
+          <div class="step-no">01</div>
+          <div class="step-title"><strong>게시물 업로드</strong><time>POSTING</time></div>
+          <div class="step-body"><strong>피드·릴스</strong>는 공동게시 승인 후 공개합니다. 회사가 사전 승인한 경우 개별·단독 업로드도 인정합니다. <strong>스토리</strong>는 계정 태그가 보이도록 게시합니다.</div>
+        </div>
+        <div class="step">
+          <div class="step-no">02</div>
+          <div class="step-title"><strong>보상 신청</strong><time>다음 달 5일까지</time></div>
+          <div class="step-body">지정 신청서에 <strong>게시물 직접 링크와 증빙 캡처</strong>를 붙여 회사가 지정한 이메일 또는 카카오톡으로 제출합니다.</div>
+        </div>
+        <div class="step">
+          <div class="step-no">03</div>
+          <div class="step-title"><strong>검토·보완</strong><time>다음 달 10일까지</time></div>
+          <div class="step-body">회사가 신청 내용을 검토합니다. 보완이 필요한 경우 <strong>1회 보완 기회</strong>를 제공합니다.</div>
+        </div>
+        <div class="step">
+          <div class="step-no">04</div>
+          <div class="step-title"><strong>승인금 지급</strong><time>다음 달 15일까지</time></div>
+          <div class="step-body">승인된 금액을 지급합니다. 지급일이 휴일이면 다음 영업일에 지급할 수 있으며, 표시 금액은 <strong>세전 금액</strong>입니다.</div>
+        </div>
+      </section>
+
+      <section class="conditions" aria-label="필수 확인 사항">
+        <div class="condition">
+          <h2>공개 유지 및 심사</h2>
+          <p>심사 시 공개 상태여야 하며 게시일부터 30일 이상 공개를 유지합니다. 삭제·비공개 전환 시 미지급분이 지급되지 않을 수 있습니다.</p>
+        </div>
+        <div class="condition">
+          <h2>권리와 별도 제작비</h2>
+          <p>보상 지급만으로 저작권·채널 소유권이 이전되지 않습니다. 회사와 별도 콘텐츠를 제작하는 경우 출연료·촬영·편집료 등을 사전 합의로 추가 지급할 수 있습니다.</p>
+        </div>
+      </section>
+
+      <section class="lead-rule receipt-rule" aria-label="제출 완료 기준">
+        <strong>접수완료<br>회신 확인</strong>
+        <p>회사가 ‘접수완료’라고 회신한 때 신청이 접수된 것으로 봅니다. 안전·법령·저작권·소속기관·후원사 규정을 위반한 콘텐츠는 보상 대상이 아닙니다.</p>
+      </section>
+
+      <footer>
+        <div><strong>Source</strong> · 11_AAC_개인채널_콘텐츠_참여보상_운영기준</div>
+        <div>신청서 · 12_AAC_개인채널_콘텐츠_보상_신청서</div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
