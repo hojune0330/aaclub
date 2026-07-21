@@ -1,0 +1,4 @@
+interface:
+  display_name: "AAC Editorial Document Design"
+  short_description: "AAC 공식 안내물을 문서형 편집 디자인으로 제작"
+  default_prompt: "$aac-editorial-document-design을 사용해 AAC 안내물을 공식 문서형 인포그래픽으로 제작해줘."
