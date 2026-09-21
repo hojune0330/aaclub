@@ -1,0 +1,178 @@
+/* ============================================================
+   AAC — Document Sub-system Tokens
+   Editorial Document System · A4 문서 산출물 전용
+   Source: archive/2026-07-21/design-system/DESIGN.md
+   상위 브랜드 시스템: colors_and_type.css (Mood 04 Hybrid)
+
+   NOTE — 이 파일의 토큰은 "AAC 공식 문서" 산출물(계약 안내, 정책
+   요약, 보상 가이드, PDF 브리프)에만 사용합니다. 로고·태그·SNS·
+   웨어러블·명함 같은 브랜드 접점은 colors_and_type.css를 씁니다.
+
+   왜 별도 색·폰트인가:
+   - 문서는 인쇄·PDF·이미지로 배포되어 그레이스케일에서도 읽혀야 함
+   - Fraunces 세리프 헤드라인은 문서 계약체에는 과함
+   - Deep Teal (--doc-accent)은 페이지당 1회 “수치·규칙” 스캔용
+   ============================================================ */
+
+/* ---------- Local latin fonts + Google-hosted Korean ---------- */
+
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/InstrumentSerif-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/InstrumentSerif-Italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/IBMPlexMono-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/IBMPlexMono-Medium.woff2") format("woff2");
+}
+
+/* Korean sans-serif — CDN (Noto Sans KR: 100+ subsets, keep hosted) */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&display=swap");
+/* Pretendard fallback (brand-preferred KR) */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+:root {
+  /* ============ DOC Surfaces ============ */
+  --paper:          #FAFAF7;   /* warm off-white — the page */
+  --surface:        #FFFFFF;   /* pure white — selected block */
+  --surface-muted:  #F3F2EE;   /* quiet band — table header */
+
+  /* ============ DOC Ink scale ============ */
+  --ink:            #0E1412;   /* near-black — headlines + body */
+  --ink-2:          #3A4340;   /* secondary — lead */
+  --ink-3:          #6B7571;   /* muted — metadata */
+
+  /* ============ DOC Structure ============ */
+  --line:           #E4E2DC;
+  --line-strong:    #0E1412;
+
+  /* ============ DOC Accent — Deep Teal ============ */
+  /* Page-scoped: use for ONE rule/figure per page. */
+  --accent:         #0D5F5A;
+  --accent-wash:    #E8F0EE;
+
+  /* ============ Semantic ============ */
+  --error:          #A11F1F;   /* only when necessary */
+
+  /* ============ Spacing (4px base) ============ */
+  --s1: 4px;  --s2: 8px;   --s3: 12px; --s4: 16px;
+  --s5: 20px; --s6: 24px;  --s7: 28px; --s8: 32px;
+  --s10: 40px; --s12: 48px; --s14: 56px; --s16: 64px; --s18: 72px;
+
+  --rhythm-tight:  16px;
+  --rhythm-base:   24px;
+  --rhythm-loose:  40px;
+  --rhythm-major:  64px;
+
+  /* ============ Radii — square first ============ */
+  --radius-0: 0;
+  --radius-1: 2px;    /* status chips only */
+
+  /* ============ Rules ============ */
+  --rule:            1px solid var(--line);
+  --rule-strong:     1px solid var(--ink);
+  --rule-accent-top: 2px solid var(--accent);
+
+  /* ============ Type families ============ */
+  --font-serif:   "Instrument Serif", "Times New Roman", "Batang", serif;
+  --font-sans:    "Pretendard Variable", "Pretendard", "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  --font-mono:    "IBM Plex Mono", "JetBrains Mono", Consolas, "D2Coding", monospace;
+
+  /* ============ Type scale (px) ============ */
+  --fs-display:    58px;   /* full-page opener */
+  --fs-display-sm: 44px;   /* smaller opener */
+  --fs-h1:         34px;
+  --fs-h2:         25px;
+  --fs-h3:         20px;
+  --fs-body-lg:    18px;
+  --fs-body:       15px;
+  --fs-body-sm:    13px;
+  --fs-caption:    11px;
+  --fs-micro:      10px;
+  --fs-figure:     24px;
+
+  /* ============ Line heights & tracking ============ */
+  --lh-display: 0.98;
+  --lh-tight:   1.1;
+  --lh-heading: 1.25;
+  --lh-body:    1.65;
+  --lh-caption: 1.45;
+
+  --tr-display:   -0.03em;
+  --tr-heading:   -0.02em;
+  --tr-mono:      0.08em;
+  --tr-mono-wide: 0.12em;
+}
+
+/* ---------------- Base semantic elements ---------------- */
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.display, .aac-display {
+  font-family: var(--font-serif);
+  font-size: var(--fs-display);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  margin: 0;
+}
+.display em, .aac-display em { color: var(--accent); font-style: italic; font-weight: 400; }
+
+.h1, h1.aac { font-family: var(--font-sans); font-size: var(--fs-h1); font-weight: 500; line-height: var(--lh-heading); letter-spacing: var(--tr-heading); margin: 0; }
+.h2, h2.aac { font-family: var(--font-sans); font-size: var(--fs-h2); font-weight: 500; line-height: var(--lh-heading); letter-spacing: var(--tr-heading); margin: 0; }
+.h3, h3.aac { font-family: var(--font-sans); font-size: var(--fs-h3); font-weight: 500; line-height: var(--lh-heading); margin: 0; }
+
+.body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-body); color: var(--ink-2); }
+.body    { font-size: var(--fs-body);    line-height: var(--lh-body); color: var(--ink); }
+.body-sm { font-size: var(--fs-body-sm); line-height: 1.55; color: var(--ink-2); }
+
+.caption, .eyebrow, .meta-label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tr-mono);
+  color: var(--ink-3);
+  text-transform: uppercase;
+}
+.eyebrow { color: var(--accent); letter-spacing: var(--tr-mono-wide); }
+
+.mono, code, kbd {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.figure {
+  font-family: var(--font-mono);
+  font-size: var(--fs-figure);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}

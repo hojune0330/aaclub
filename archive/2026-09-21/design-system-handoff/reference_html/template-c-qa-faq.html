@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC · 신인 선수 Q&A (샘플)</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/LeadRule.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/QARow.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = [
+      { k: "Document", v: "Onboarding Q&A" },
+      { k: "Program",  v: "AAC New Athletes" },
+      { k: "Audience", v: "AAC Athletes" },
+      { k: "Page",     v: "01 / 01" },
+    ];
+
+    const QAS = [
+      { q: "훈련은 매일 팀과 함께 해야 하나요?",
+        a: "아니오. 기존 소속(학교·실업팀·개인 코치)의 훈련 스케줄을 존중합니다. AAC는 월 12회 이상 접속되는 코칭 세션을 통해 방향을 함께 잡습니다." },
+      { q: "SNS는 꼭 공동게시로만 올려야 하나요?",
+        a: "피드·릴스는 @athleticsathleteclub 공동게시가 원칙입니다. 사전에 회사가 승인한 경우에 한해 개별·단독 업로드도 인정합니다." },
+      { q: "다른 후원사가 있어도 계약할 수 있나요?",
+        a: "가능합니다. 다만 카테고리 중첩(예: 슈즈·아이웨어)에 대해서는 사전 협의가 필요합니다. 기존 계약 조건을 그대로 유지할 수 있도록 조율합니다." },
+      { q: "보상금 정산은 언제 이뤄지나요?",
+        a: "매월 5일까지 신청 → 10일까지 검토·보완 → 15일까지 지급의 사이클입니다. 지급일이 휴일이면 다음 영업일에 지급될 수 있습니다." },
+      { q: "촬영 요청이 있을 때 별도 비용이 지급되나요?",
+        a: "네. 회사가 별도로 기획·요청한 콘텐츠는 출연료·촬영·편집료를 사전 합의로 추가 지급합니다. 자발적 개인 게시물은 참여보상 기준을 따릅니다." },
+      { q: "부상·컨디션 저하로 시즌을 쉬면 계약에 문제가 되나요?",
+        a: "부상은 서면 통지 후 훈련·촬영 의무가 정지됩니다. 매니지먼트 수수료는 회복 기간 동안 부과되지 않습니다." },
+    ];
+
+    function QAPage() {
+      return (
+        <Page>
+          <MetaRail items={META} />
+          <PageHeader code="AAC-QA · v1.0" />
+          <EditorialHero
+            eyebrow="New athlete · frequently asked"
+            display="What new athletes"
+            displayEm="usually ask."
+            h1="신인 선수 자주 묻는 질문"
+          />
+
+          <LeadRule label={<>모르면<br />물어봐 주세요.</>}>
+            아래는 실제로 자주 들어오는 질문 여섯 가지입니다. 여기서 답이 부족하면 <b>담당 코치</b> 또는 <b>contact@athleticsathleteclub.kr</b> 로 언제든 회신 주세요.
+          </LeadRule>
+
+          <SectionHead h2="Q & A" right="06 QUESTIONS" />
+          <div style={{ borderTop: "1px solid var(--ink)" }}>
+            {QAS.map((qa, i) => (
+              <QARow key={i} n={i + 1} q={qa.q} a={qa.a} last={i === QAS.length - 1} />
+            ))}
+          </div>
+
+          <PageFooter
+            left={<><strong>Source</strong> · AAC Onboarding Playbook 2026</>}
+            right={<>contact@athleticsathleteclub.kr</>}
+          />
+        </Page>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<QAPage />);
+  </script>
+</body>
+</html>

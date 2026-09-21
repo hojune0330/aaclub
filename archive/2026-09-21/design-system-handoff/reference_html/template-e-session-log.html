@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC · 훈련 노트 (샘플)</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = [
+      { k: "Document", v: "Session Log" },
+      { k: "Program",  v: "AAC Training Note" },
+      { k: "Audience", v: "Athlete · Coach" },
+      { k: "Page",     v: "01 / 01" },
+    ];
+
+    function SessionLog() {
+      return (
+        <Page>
+          <MetaRail items={META} />
+          <PageHeader code="AAC-SL · N° 004" />
+
+          <EditorialHero
+            eyebrow="Session 004 · 400m interval"
+            display="Session"
+            displayEm="004."
+            h1="400m 인터벌 · 강도 82% · 체감 매우 좋음"
+          />
+
+          {/* Coordinates + conditions row */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1.2fr 1fr 1fr 1fr",
+            borderTop: "1px solid var(--line)",
+            borderBottom: "1px solid var(--line)",
+            marginBottom: 24,
+          }}>
+            {[
+              { k: "Location", v: "잠실 종합운동장 보조" },
+              { k: "Date",     v: "2026 · 09 · 20" },
+              { k: "Weather",  v: "21°C · Humid 58%" },
+              { k: "Track",    v: "Lane 4 · Mondo" },
+            ].map((it, i, arr) => (
+              <div key={i} style={{
+                padding: `12px ${i === arr.length - 1 ? 0 : 12}px 12px ${i === 0 ? 0 : 12}px`,
+                borderRight: i === arr.length - 1 ? "none" : "1px solid var(--line)",
+              }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>{it.k}</div>
+                <div style={{ marginTop: 4, fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--ink)" }}>{it.v}</div>
+              </div>
+            ))}
+          </div>
+
+          <SectionHead h2="세트 기록" right="5 SETS · REST 4:00" />
+          <DataTable
+            ariaLabel="세트별 기록"
+            columns={[
+              { key: "set",   header: "Set",   width: "10%", mono: true },
+              { key: "dist",  header: "Dist",  width: "12%", mono: true },
+              { key: "time",  header: "Time",  width: "14%", align: "right" },
+              { key: "rest",  header: "Rest",  width: "12%", align: "right" },
+              { key: "feel",  header: "Feel",  width: "12%" },
+              { key: "note",  header: "Note",  width: "40%", muted: true },
+            ]}
+            rows={[
+              { set: "01", dist: "400m", time: "1:04.2", rest: "4:00", feel: "8 / 10", note: "출발 반응 좋음, 220m 지점 상체 힘 들어감" },
+              { set: "02", dist: "400m", time: "1:03.8", rest: "4:00", feel: "9 / 10", note: "리듬 안정. 마지막 60m 어택 성공" },
+              { set: "03", dist: "400m", time: "1:04.1", rest: "4:00", feel: "8 / 10", note: "폼 OK. 커브 진입 각도 조금 넓어짐" },
+              { set: "04", dist: "400m", time: "1:05.1", rest: "4:00", feel: "7 / 10", note: "무릎 통증 미세하게 감지 — 4세트에서 확인" },
+              { set: "05", dist: "400m", time: "1:04.9", rest: "—",   feel: "7 / 10", note: "파이널 · 마무리 유지. 쿨다운 30분" },
+            ]}
+          />
+
+          {/* Coach feedback */}
+          <div style={{ marginTop: 28, padding: "20px 24px", background: "var(--surface-muted)", borderTop: "1px solid var(--ink)", borderBottom: "1px solid var(--line)" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase", marginBottom: 8 }}>Coach Feedback · 코치 피드백</div>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 20, lineHeight: 1.35, color: "var(--ink)", fontStyle: "italic", letterSpacing: "-0.01em" }}>
+              "4번 랩에서 무릎이 살짝 안으로 들어왔다. 다음 세션은 힙 안정성 위주로 잡고, 목요일 세션은 스킵."
+            </p>
+            <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>
+              <div>Head Coach · Jang Hojune</div>
+              <div>Signed —</div>
+            </div>
+          </div>
+
+          <PageFooter
+            left={<><strong>Source</strong> · AAC Training Journal · Athlete 017</>}
+            right={<>LAT 37.51 / LON 127.08</>}
+          />
+        </Page>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<SessionLog />);
+  </script>
+</body>
+</html>

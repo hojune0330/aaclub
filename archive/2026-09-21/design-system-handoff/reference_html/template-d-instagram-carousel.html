@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC · 참여보상 인스타 캐러셀 (샘플)</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>
+    body { background: var(--surface-muted); margin: 0; padding: 24px 0; min-height: 100vh; }
+    .stage { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .cap { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--ink-3); text-transform: uppercase; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/CarouselFrame.jsx"></script>
+
+  <script type="text/babel">
+    const TOTAL = 5;
+
+    // ---- Small helpers (inline for the carousel style) ----
+    const Eyebrow = ({ children }) => (
+      <p style={{
+        margin: 0,
+        fontFamily: "var(--font-mono)",
+        fontSize: 12,
+        letterSpacing: "0.14em",
+        color: "var(--accent)",
+        textTransform: "uppercase",
+      }}>{children}</p>
+    );
+    const Wordmark = () => (
+      <img src="../assets/aac-wordmark-dark.png" alt="Athletics Athlete Club" style={{ display: "block", width: 200, height: "auto" }} />
+    );
+    const Section = ({ children, style }) => (
+      <div style={{ borderTop: "1px solid var(--line)", paddingTop: 16, marginTop: 24, ...style }}>{children}</div>
+    );
+
+    // ---- Slide 1 · Cover ----
+    function S1() {
+      return (
+        <CarouselFrame index={1} total={TOTAL}>
+          <Wordmark />
+          <div style={{ marginTop: 40 }}>
+            <Eyebrow>Personal channel · reward</Eyebrow>
+            <p style={{
+              margin: "16px 0 0",
+              fontFamily: "var(--font-serif)",
+              fontSize: 56,
+              fontWeight: 400,
+              lineHeight: 0.98,
+              letterSpacing: "-0.03em",
+              color: "var(--ink)",
+            }}>
+              Participation,<br /><em style={{ color: "var(--accent)", fontStyle: "italic" }}>clearly rewarded.</em>
+            </p>
+            <h1 style={{
+              margin: "20px 0 0",
+              fontFamily: "var(--font-sans)",
+              fontSize: 22,
+              fontWeight: 500,
+              letterSpacing: "-0.02em",
+            }}>개인채널 콘텐츠 참여보상</h1>
+            <p style={{ margin: "12px 0 0", fontSize: 13, color: "var(--ink-2)", lineHeight: 1.6 }}>
+              시범운영 · 월 최대 100,000원
+            </p>
+          </div>
+          <div style={{ position: "absolute", left: 36, right: 36, bottom: 60, borderTop: "2px solid var(--accent)", paddingTop: 10, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase" }}>
+            SWIPE →
+          </div>
+        </CarouselFrame>
+      );
+    }
+
+    // ---- Slide 2 · Principle ----
+    function S2() {
+      return (
+        <CarouselFrame index={2} total={TOTAL}>
+          <Eyebrow>Rule 01</Eyebrow>
+          <p style={{
+            margin: "12px 0 0",
+            fontFamily: "var(--font-serif)",
+            fontSize: 44,
+            lineHeight: 1,
+            letterSpacing: "-0.03em",
+          }}>
+            공동게시가<br /><em style={{ color: "var(--accent)", fontStyle: "italic" }}>원칙입니다.</em>
+          </p>
+          <Section>
+            <p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              피드·릴스는 <b style={{ color: "var(--ink)" }}>@athleticsathleteclub</b> 공동게시가 실제 승인되어 공개된 경우 인정합니다.
+            </p>
+            <p style={{ margin: "12px 0 0", fontSize: 15, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              회사가 사전에 승인한 경우에는 개별·단독 업로드도 인정합니다.
+            </p>
+          </Section>
+        </CarouselFrame>
+      );
+    }
+
+    // ---- Slide 3 · Amounts table ----
+    function S3() {
+      const rows = [
+        { t: "사진 1–2장",   a: "10,000원" },
+        { t: "사진 3–7장",   a: "15,000원" },
+        { t: "사진 8장+",    a: "20,000원" },
+        { t: "일반 릴스",    a: "20,000원" },
+        { t: "챌린지 릴스",  a: "25,000원" },
+        { t: "스토리 태그",  a: "1,000원" },
+      ];
+      return (
+        <CarouselFrame index={3} total={TOTAL}>
+          <Eyebrow>Amounts · before tax</Eyebrow>
+          <p style={{ margin: "12px 0 0", fontFamily: "var(--font-serif)", fontSize: 40, lineHeight: 1, letterSpacing: "-0.03em" }}>
+            건별 <em style={{ color: "var(--accent)", fontStyle: "italic" }}>보상</em>
+          </p>
+          <table style={{ width: "100%", borderCollapse: "collapse", marginTop: 24, tableLayout: "fixed" }}>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={i}>
+                  <td style={{ padding: "12px 0", borderBottom: "1px solid var(--line)", fontSize: 14, color: "var(--ink)" }}>{r.t}</td>
+                  <td style={{ padding: "12px 0", borderBottom: "1px solid var(--line)", textAlign: "right", fontFamily: "var(--font-mono)", fontSize: 16, fontWeight: 500, color: "var(--accent)", fontVariantNumeric: "tabular-nums" }}>{r.a}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </CarouselFrame>
+      );
+    }
+
+    // ---- Slide 4 · Timeline ----
+    function S4() {
+      const steps = [
+        { n: "01", t: "다음 달 5일까지",  b: "게시 링크 + 캡처 제출" },
+        { n: "02", t: "다음 달 10일까지", b: "회사 검토 · 보완 1회" },
+        { n: "03", t: "다음 달 15일까지", b: "승인금 지급 (세전)" },
+      ];
+      return (
+        <CarouselFrame index={4} total={TOTAL}>
+          <Eyebrow>Application · settlement</Eyebrow>
+          <p style={{ margin: "12px 0 0", fontFamily: "var(--font-serif)", fontSize: 40, lineHeight: 1, letterSpacing: "-0.03em" }}>
+            신청부터<br /><em style={{ color: "var(--accent)", fontStyle: "italic" }}>지급까지</em>
+          </p>
+          <div style={{ marginTop: 28, borderTop: "1px solid var(--ink)" }}>
+            {steps.map((s, i) => (
+              <div key={s.n} style={{
+                display: "grid",
+                gridTemplateColumns: "48px 1fr",
+                gap: 20,
+                padding: "18px 0",
+                borderBottom: "1px solid var(--line)",
+              }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 22, color: "var(--accent)" }}>{s.n}</div>
+                <div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>{s.t}</div>
+                  <div style={{ marginTop: 4, fontSize: 15, color: "var(--ink)", fontWeight: 500 }}>{s.b}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CarouselFrame>
+      );
+    }
+
+    // ---- Slide 5 · Limits + CTA ----
+    function S5() {
+      return (
+        <CarouselFrame index={5} total={TOTAL}>
+          <Eyebrow>Limits</Eyebrow>
+          <p style={{ margin: "12px 0 0", fontFamily: "var(--font-serif)", fontSize: 40, lineHeight: 1, letterSpacing: "-0.03em" }}>
+            선수 1인,<br /><em style={{ color: "var(--accent)", fontStyle: "italic" }}>월 10만원</em>
+          </p>
+          <div style={{ marginTop: 24, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+            <div style={{ padding: "14px 12px 14px 0", borderRight: "1px solid var(--line)" }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>Story limit</div>
+              <div style={{ marginTop: 4, fontSize: 14, fontWeight: 500 }}>월 10건</div>
+            </div>
+            <div style={{ padding: "14px 0 14px 12px" }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>Duplication</div>
+              <div style={{ marginTop: 4, fontSize: 14, fontWeight: 500 }}>최고액 1건</div>
+            </div>
+          </div>
+          <div style={{ position: "absolute", left: 36, right: 36, bottom: 60, paddingTop: 14, borderTop: "2px solid var(--accent)" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase" }}>Full guide</div>
+            <div style={{ marginTop: 4, fontSize: 14, fontWeight: 500, color: "var(--ink)" }}>@athleticsathleteclub · 링크</div>
+          </div>
+        </CarouselFrame>
+      );
+    }
+
+    function App() {
+      return (
+        <div className="stage">
+          <div className="cap">Instagram carousel · 540 × 675 preview (post at 1080 × 1350)</div>
+          <S1 /><S2 /><S3 /><S4 /><S5 />
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>
