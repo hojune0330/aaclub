@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--aa-off-white)}
+  .head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--aa-line);margin-bottom:20px}
+  .head h2{margin:0;font-family:var(--font-display);font-style:italic;font-weight:400;font-size:22px;letter-spacing:-.02em}
+  .head span{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--aa-gray-500);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--aa-line);border-bottom:1px solid var(--aa-line)}
+  .cell{padding:22px 12px;border-right:1px solid var(--aa-line);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .cell:last-child{border-right:0}
+  .cell img{max-width:220px;width:100%;height:auto;display:block}
+  .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--aa-gray-500);text-transform:uppercase;text-align:center}
+  .dark{background:var(--aa-black)}
+  .dark .lbl{color:var(--aa-off-white);opacity:.7}
+</style></head>
+<body>
+<div class="head"><h2>Color variants</h2><span>Black · Navy · White (on ink)</span></div>
+<div class="grid">
+  <div class="cell"><img src="../assets/logos/AA-CLUB_MAIN_black_1x.png" alt="Black"><div class="lbl">Black · #0A0A0A · default</div></div>
+  <div class="cell"><img src="../assets/logos/AA-CLUB_MAIN_navy_1x.png" alt="Navy"><div class="lbl">Navy · #0F1B3D · accent</div></div>
+  <div class="cell dark"><img src="../assets/logos/AA-CLUB_MAIN_white_1x.png" alt="White"><div class="lbl">White · #F5F3EE · reversed</div></div>
+</div>
+</body></html>

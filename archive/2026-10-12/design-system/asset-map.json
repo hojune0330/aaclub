@@ -1,0 +1,314 @@
+{
+  "snapshot": "2026-10-12",
+  "shared_assets": {
+    "design-system/aa-logo.jsx": {
+      "source": "design-system/aa-logo.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/brand/aa-logo.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/brand/aa-logo.jsx"
+      ],
+      "git_blob": "4e50b1fa8788d6d4ec935aba9893fd2b5b1267f8"
+    },
+    "design-system/brand-tokens.jsx": {
+      "source": "design-system/brand-tokens.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/brand/brand-tokens.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/brand/brand-tokens.jsx"
+      ],
+      "git_blob": "10ea3f89ebdea61bd04a272c79857a75651450e1"
+    },
+    "design-system/PHOTO_BRIEF.md": {
+      "source": "design-system/PHOTO_BRIEF.md",
+      "canonical": "archive/2026-09-21/design-system-handoff/PHOTO_BRIEF.md",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/PHOTO_BRIEF.md"
+      ],
+      "git_blob": "e8a1f7945da0c1a49c59f5353fec40686135a2b0"
+    },
+    "design-system/assets/aac-wordmark-dark.png": {
+      "source": "design-system/assets/aac-wordmark-dark.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/aac-wordmark-dark.png",
+      "all_matches": [
+        "archive/2026-07-21/design-system/skill/assets/aac-wordmark-dark.png",
+        "archive/2026-07-21/references/brand/aac-wordmark-dark-original.png",
+        "archive/2026-09-21/design-system-handoff/assets/aac-wordmark-dark.png"
+      ],
+      "git_blob": "e6a3cb4308d416c3e29081f993f2938aa205c727"
+    },
+    "design-system/assets/aac-wordmark-light.png": {
+      "source": "design-system/assets/aac-wordmark-light.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/aac-wordmark-light.png",
+      "all_matches": [
+        "archive/2026-07-21/design-system/skill/assets/aac-wordmark-light.png",
+        "archive/2026-07-21/references/brand/aac-wordmark-light-original.png",
+        "archive/2026-09-21/design-system-handoff/assets/aac-wordmark-light.png"
+      ],
+      "git_blob": "edbf9b372deb265d6b318bba636196f4a4e1430a"
+    },
+    "design-system/assets/AA_CLUB_logo.svg": {
+      "source": "design-system/assets/AA_CLUB_logo.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/AA_CLUB_logo.svg",
+      "all_matches": [
+        "archive/2026-05-20/brand/AA_CLUB_logo.svg",
+        "archive/2026-09-21/design-system-handoff/assets/AA_CLUB_logo.svg"
+      ],
+      "git_blob": "61650bda7bfd1c571a83c4393aeb02a23bf00f01"
+    },
+    "design-system/fonts/IBMPlexMono-Medium.woff2": {
+      "source": "design-system/fonts/IBMPlexMono-Medium.woff2",
+      "canonical": "archive/2026-09-21/design-system-handoff/fonts/IBMPlexMono-Medium.woff2",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/fonts/IBMPlexMono-Medium.woff2"
+      ],
+      "git_blob": "3308bce2432c298817ed344eeac33007c83cecd0"
+    },
+    "design-system/fonts/IBMPlexMono-Regular.woff2": {
+      "source": "design-system/fonts/IBMPlexMono-Regular.woff2",
+      "canonical": "archive/2026-09-21/design-system-handoff/fonts/IBMPlexMono-Regular.woff2",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/fonts/IBMPlexMono-Regular.woff2"
+      ],
+      "git_blob": "52b6c7595dd5e2106676e7c52fcff18539607879"
+    },
+    "design-system/fonts/InstrumentSerif-Italic.woff2": {
+      "source": "design-system/fonts/InstrumentSerif-Italic.woff2",
+      "canonical": "archive/2026-09-21/design-system-handoff/fonts/InstrumentSerif-Italic.woff2",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/fonts/InstrumentSerif-Italic.woff2"
+      ],
+      "git_blob": "ce3c417c8d0e9f012bb697d25a0874d148ea89e6"
+    },
+    "design-system/fonts/InstrumentSerif-Regular.woff2": {
+      "source": "design-system/fonts/InstrumentSerif-Regular.woff2",
+      "canonical": "archive/2026-09-21/design-system-handoff/fonts/InstrumentSerif-Regular.woff2",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/fonts/InstrumentSerif-Regular.woff2"
+      ],
+      "git_blob": "17653042acca7f87268c8c29dc8c0cc094c0b124"
+    },
+    "design-system/assets/logos/AA-CLUB_MAIN_black.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_MAIN_black.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_black.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_black.svg"
+      ],
+      "git_blob": "1b88c70bde87e573d5493d986d10132b1b7d0ba3"
+    },
+    "design-system/assets/logos/AA-CLUB_MAIN_black_3x.png": {
+      "source": "design-system/assets/logos/AA-CLUB_MAIN_black_3x.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_black_3x.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_black_3x.png"
+      ],
+      "git_blob": "0df7e8fda207f68584cefa415c79af54251841a9"
+    },
+    "design-system/assets/logos/AA-CLUB_MAIN_navy.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_MAIN_navy.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_navy.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_navy.svg"
+      ],
+      "git_blob": "18f703d34002c11ba23437f40e16fbb354b15211"
+    },
+    "design-system/assets/logos/AA-CLUB_MAIN_white.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_MAIN_white.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_white.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_MAIN_white.svg"
+      ],
+      "git_blob": "2b55785ffd2455b04d27cb3705b6562ce9e64208"
+    },
+    "design-system/assets/logos/AA-CLUB_SHORT_black.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_SHORT_black.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_black.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_black.svg"
+      ],
+      "git_blob": "dc1f8294cc13aef150b504c7a59de900b02f26a8"
+    },
+    "design-system/assets/logos/AA-CLUB_SHORT_black_3x.png": {
+      "source": "design-system/assets/logos/AA-CLUB_SHORT_black_3x.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_black_3x.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_black_3x.png"
+      ],
+      "git_blob": "3f0197b3ec874432e8bb0e5c66f9fac8c81e1caa"
+    },
+    "design-system/assets/logos/AA-CLUB_SHORT_navy.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_SHORT_navy.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_navy.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_navy.svg"
+      ],
+      "git_blob": "221d3795973167f0e14ba3dcb0b33dacbd42d9b2"
+    },
+    "design-system/assets/logos/AA-CLUB_SHORT_white.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_SHORT_white.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_white.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_SHORT_white.svg"
+      ],
+      "git_blob": "7f218ca503bf67dbedb3b427acc47929fdf2ab9a"
+    },
+    "design-system/assets/logos/AA-CLUB_STACK_black.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_STACK_black.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_black.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_black.svg"
+      ],
+      "git_blob": "b760812561d9549ae4fdfc7e47d0d3191074553a"
+    },
+    "design-system/assets/logos/AA-CLUB_STACK_black_3x.png": {
+      "source": "design-system/assets/logos/AA-CLUB_STACK_black_3x.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_black_3x.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_black_3x.png"
+      ],
+      "git_blob": "2f69d7c22bec232c5f06714fc8040d9c1d1b8123"
+    },
+    "design-system/assets/logos/AA-CLUB_STACK_navy.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_STACK_navy.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_navy.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_navy.svg"
+      ],
+      "git_blob": "82c344a3aff58b113dee2776aea4f743453c7b97"
+    },
+    "design-system/assets/logos/AA-CLUB_STACK_white.svg": {
+      "source": "design-system/assets/logos/AA-CLUB_STACK_white.svg",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_white.svg",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/logos/AA-CLUB_STACK_white.svg"
+      ],
+      "git_blob": "c806a3501d631c36762c50a340aad9a3410c0893"
+    },
+    "design-system/assets/samples/01_content_reward_page1.png": {
+      "source": "design-system/assets/samples/01_content_reward_page1.png",
+      "canonical": "archive/2026-07-21/content-reward-guide/01_보상금액과_인정조건_문서형.png",
+      "all_matches": [
+        "archive/2026-07-21/content-reward-guide/01_보상금액과_인정조건_문서형.png"
+      ],
+      "git_blob": "af37a29c206c9a9ae1a21b9cd3194bface00e6cc"
+    },
+    "design-system/assets/samples/02_content_reward_page2.png": {
+      "source": "design-system/assets/samples/02_content_reward_page2.png",
+      "canonical": "archive/2026-07-21/content-reward-guide/02_신청과_정산절차_문서형.png",
+      "all_matches": [
+        "archive/2026-07-21/content-reward-guide/02_신청과_정산절차_문서형.png"
+      ],
+      "git_blob": "6af22b61b1e13a3027dc4a2e272d546c2c29852f"
+    },
+    "design-system/assets/icons/pillars/belonging.png": {
+      "source": "design-system/assets/icons/pillars/belonging.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/icons/pillars/belonging.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/icons/pillars/belonging.png"
+      ],
+      "git_blob": "e4fa6321f5d4a9fc0feb9f36cdb0fb9906415810"
+    },
+    "design-system/assets/icons/pillars/feedback.png": {
+      "source": "design-system/assets/icons/pillars/feedback.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/icons/pillars/feedback.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/icons/pillars/feedback.png"
+      ],
+      "git_blob": "e840828548759bebcddecf3bd51c3e2dc63fb268"
+    },
+    "design-system/assets/icons/pillars/management.png": {
+      "source": "design-system/assets/icons/pillars/management.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/icons/pillars/management.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/icons/pillars/management.png"
+      ],
+      "git_blob": "fc43a34af90a87ba02ade84091bf16faf6cb365c"
+    },
+    "design-system/assets/icons/pillars/training.png": {
+      "source": "design-system/assets/icons/pillars/training.png",
+      "canonical": "archive/2026-09-21/design-system-handoff/assets/icons/pillars/training.png",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/assets/icons/pillars/training.png"
+      ],
+      "git_blob": "8dbc5f45a55c057c72d1480eb70e8f66875dc0de"
+    },
+    "design-system/ui_kits/editorial-document/CarouselFrame.jsx": {
+      "source": "design-system/ui_kits/editorial-document/CarouselFrame.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/CarouselFrame.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/CarouselFrame.jsx"
+      ],
+      "git_blob": "a7801447115266a9cd67233b6845e2d9820c260d"
+    },
+    "design-system/ui_kits/editorial-document/EditorialHero.jsx": {
+      "source": "design-system/ui_kits/editorial-document/EditorialHero.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"
+      ],
+      "git_blob": "8187521a5579baa0ff9725d27779380c777e7690"
+    },
+    "design-system/ui_kits/editorial-document/LeadRule.jsx": {
+      "source": "design-system/ui_kits/editorial-document/LeadRule.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx"
+      ],
+      "git_blob": "b20e819fd966ac05b2676f1c17ca091ab91270a1"
+    },
+    "design-system/ui_kits/editorial-document/MetaRail.jsx": {
+      "source": "design-system/ui_kits/editorial-document/MetaRail.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"
+      ],
+      "git_blob": "cc85093ddffae11b07b0fd7f889a08f2bd5c610a"
+    },
+    "design-system/ui_kits/editorial-document/Page.jsx": {
+      "source": "design-system/ui_kits/editorial-document/Page.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/Page.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"
+      ],
+      "git_blob": "66a56205ec93b8a747e27b4870e5fceb5c6910af"
+    },
+    "design-system/ui_kits/editorial-document/PageFooter.jsx": {
+      "source": "design-system/ui_kits/editorial-document/PageFooter.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"
+      ],
+      "git_blob": "96ccc72792c785a48477f8d866bcc7179a2657b2"
+    },
+    "design-system/ui_kits/editorial-document/PageHeader.jsx": {
+      "source": "design-system/ui_kits/editorial-document/PageHeader.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"
+      ],
+      "git_blob": "e8521fd1c6592931c0ff58c5019b3cbb4c679c73"
+    },
+    "design-system/ui_kits/editorial-document/RewardTable.jsx": {
+      "source": "design-system/ui_kits/editorial-document/RewardTable.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/RewardTable.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/RewardTable.jsx"
+      ],
+      "git_blob": "57b1524f6a543736c57dce4b4205aa738d956f6f"
+    },
+    "design-system/ui_kits/editorial-document/SectionHead.jsx": {
+      "source": "design-system/ui_kits/editorial-document/SectionHead.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"
+      ],
+      "git_blob": "9d5ff18c54bd94cb2f3a4999ba16dbc93528c6aa"
+    },
+    "design-system/ui_kits/editorial-document/StatBlock.jsx": {
+      "source": "design-system/ui_kits/editorial-document/StatBlock.jsx",
+      "canonical": "archive/2026-09-21/design-system-handoff/components/editorial-document/StatBlock.jsx",
+      "all_matches": [
+        "archive/2026-09-21/design-system-handoff/components/editorial-document/StatBlock.jsx"
+      ],
+      "git_blob": "391731de449b9403e8604eb51f026f2ee1522b52"
+    }
+  }
+}

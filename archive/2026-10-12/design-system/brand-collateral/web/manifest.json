@@ -1,0 +1,13 @@
+{
+  "name": "Athletics Athlete Club",
+  "short_name": "AA Club",
+  "description": "for Athlete. — 육상 선수를 위한 피드백·트레이닝·소속·매니지먼트 클럽.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F3EE",
+  "theme_color": "#0A0A0A",
+  "icons": [
+    { "src": "/android-chrome-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/android-chrome-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

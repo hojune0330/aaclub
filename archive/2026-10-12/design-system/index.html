@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Athletics Athlete Club · Design System</title>
+  <link rel="stylesheet" href="colors_and_type.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1200px; padding: 56px 48px 80px; margin: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 28px; border-bottom: var(--border-strong); }
+    header img { display: block; width: 220px; height: auto; }
+    .meta { font-family: var(--font-mono); font-size: 11px; color: var(--fg3); letter-spacing: .08em; }
+    h1 { margin: 48px 0 20px; font-size: clamp(44px, 7vw, 76px); }
+    .intro { font-family: var(--font-body-kr); font-size: 16px; max-width: 600px; color: var(--fg2); line-height: 1.7; }
+    .groups { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px; }
+    h2 { font-size: 32px; margin: 16px 0 20px; }
+    .number { font-family: var(--font-mono); font-size: 11px; color: var(--fg3); }
+    a { color: var(--fg1); text-decoration: none; }
+    .entry { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; border-top: var(--border-thin); padding: 18px 0; font-size: 15px; font-family: var(--font-body-kr); }
+    .entry:last-child { border-bottom: var(--border-thin); }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--aa-black); outline-offset: 4px; }
+    footer { margin-top: 64px; padding-top: 20px; border-top: var(--border-strong); }
+    footer p { font-family: var(--font-body-kr); color: var(--fg2); font-size: 13px; }
+    @media (max-width: 680px) { main { padding: 32px 24px 48px; } header { flex-direction: column; align-items: flex-start; gap: 12px; } .groups { grid-template-columns: 1fr; gap: 40px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="assets/logos/AA-CLUB_MAIN_black_1x.png" alt="Athletics Athlete Club">
+      <span class="meta">DESIGN SYSTEM · 2026.10.12</span>
+    </header>
+    <h1>for <em>Athlete.</em></h1>
+    <p class="intro">브랜드 접점과 공식 문서를 위한 디자인 시스템.<br>만드는 자료에 맞는 레이어를 선택합니다.</p>
+    <div class="groups">
+      <section>
+        <span class="number">01 · BRAND IDENTITY</span>
+        <h2>Brand identity.</h2>
+        <a class="entry" href="assets/logos/index.html"><span>확정 로고 라이브러리</span><span class="meta">H2 / S2 / SF2</span></a>
+        <a class="entry" href="ui_kits/brand-system/index.html"><span>브랜드 캔버스</span><span class="meta">MOOD 04</span></a>
+        <a class="entry" href="brand-collateral/index.html"><span>명함·서명·브랜드 자료</span><span class="meta">COLLATERAL</span></a>
+        <a class="entry" href="landing/index.html"><span>랜딩 목업</span><span class="meta">WEB</span></a>
+      </section>
+      <section>
+        <span class="number">02 · EDITORIAL DOCUMENT</span>
+        <h2>Editorial document.</h2>
+        <a class="entry" href="templates/index.html"><span>문서 템플릿 10종</span><span class="meta">A–J</span></a>
+        <a class="entry" href="ui_kits/editorial-document/index.html"><span>문서 컴포넌트</span><span class="meta">A4</span></a>
+        <a class="entry" href="../README.md"><span>사용 기준과 자료 구성</span><span class="meta">GUIDE</span></a>
+        <a class="entry" href="REUSED_ASSETS.md"><span>공용 자산 목록</span><span class="meta">ASSETS</span></a>
+      </section>
+    </div>
+    <footer>
+      <p>템플릿과 랜딩의 선수명·기록·조건·재무 수치는 디자인 예시입니다. 실제 사진은 사진 슬롯에 교체합니다.</p>
+      <span class="meta">ATHLETICS ATHLETE CLUB · FOR ATHLETE.</span>
+    </footer>
+  </main>
+</body>
+</html>

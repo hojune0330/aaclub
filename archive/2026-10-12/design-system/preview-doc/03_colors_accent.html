@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../doc-tokens.css">
+<style>body{margin:0;padding:20px;background:var(--paper)}
+.wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sw{padding:20px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.sw+.sw{border-left:1px solid var(--line)}
+.sw .name{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.sw .hex{font-family:var(--font-mono);font-size:13px;margin-top:6px}
+.rule{border-top:2px solid var(--accent);margin-top:12px;padding-top:8px;color:var(--accent);font-weight:500;font-size:14px}
+.badge{display:inline-block;padding:4px 10px;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="sw" style="background:var(--accent);color:#fff">
+    <div><div class="name" style="opacity:.7">Accent · Deep teal</div><div class="hex">#0D5F5A</div></div>
+    <div style="font-size:11px;opacity:.85">페이지당 한 규칙 · 한 숫자에만</div>
+  </div>
+  <div class="sw" style="background:var(--accent-wash)">
+    <div><div class="name" style="color:var(--accent)">Accent wash</div><div class="hex" style="color:var(--accent)">#E8F0EE</div></div>
+    <div class="badge">Sample</div>
+  </div>
+</div>
+<div class="rule">2px accent rule + 표준 액센트 사용 예</div>
+</body></html>

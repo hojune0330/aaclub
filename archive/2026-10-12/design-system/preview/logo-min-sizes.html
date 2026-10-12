@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--aa-off-white)}
+  .head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--aa-line);margin-bottom:20px}
+  .head h2{margin:0;font-family:var(--font-display);font-style:italic;font-weight:400;font-size:22px;letter-spacing:-.02em}
+  .head span{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--aa-gray-500);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--aa-line);border-bottom:1px solid var(--aa-line)}
+  .cell{padding:22px 12px;border-right:1px solid var(--aa-line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:140px}
+  .cell:last-child{border-right:0}
+  .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--aa-gray-500);text-transform:uppercase;text-align:center;line-height:1.5}
+  .name{font-family:var(--font-eyebrow);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+</style></head>
+<body>
+<div class="head"><h2>Minimum sizes</h2><span>Below → step down to shorter form</span></div>
+<div class="grid">
+  <div class="cell">
+    <img src="../assets/logos/AA-CLUB_MAIN_black_1x.png" alt="Main" style="width:220px">
+    <div><div class="name">MAIN · 220px</div><div class="lbl">아래로는 STACK 사용</div></div>
+  </div>
+  <div class="cell">
+    <img src="../assets/logos/AA-CLUB_STACK_black_1x.png" alt="Stack" style="width:110px">
+    <div><div class="name">STACK · 110px</div><div class="lbl">아래로는 SHORT 사용</div></div>
+  </div>
+  <div class="cell">
+    <img src="../assets/logos/AA-CLUB_SHORT_black_1x.png" alt="Short" style="width:40px">
+    <div><div class="name">SHORT · 40px</div><div class="lbl">파비콘 최소치</div></div>
+  </div>
+</div>
+</body></html>

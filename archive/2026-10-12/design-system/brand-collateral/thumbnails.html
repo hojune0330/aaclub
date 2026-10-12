@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Podcast & YouTube Thumbnails</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { padding: 32px; background: var(--aa-gray-50); font-family: var(--font-body-kr); }
+    .lead { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 0 0 8px; }
+    h1 { font-family: var(--font-display); font-weight: 300; font-size: 36px; letter-spacing: -.02em; margin: 0 0 30px; }
+    h1 em { font-style: italic; }
+    .section-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 40px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--aa-black); }
+
+    /* YouTube 1280×720 rendered at half scale (640×360) */
+    .yt { width: 640px; height: 360px; background: var(--aa-off-white); position: relative; margin: 12px 0; box-sizing: border-box; }
+    .yt-cover { padding: 32px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; box-sizing: border-box; }
+    .yt-ep { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 0; }
+    .yt-title { font-family: var(--font-display); font-size: 44px; font-weight: 300; letter-spacing: -.02em; line-height: 1; margin: 12px 0 0; color: var(--aa-black); }
+    .yt-title em { font-style: italic; }
+    .yt-bottom { display: flex; align-items: flex-end; justify-content: space-between; }
+    .yt-guest { font-family: var(--font-body-kr); font-size: 13px; color: var(--fg2); }
+    .yt-guest strong { color: var(--aa-black); }
+    .yt-tag { background: var(--aa-black); color: var(--aa-off-white); padding: 5px 12px; font-family: var(--font-eyebrow); font-weight: 700; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+
+    /* YouTube dark variant */
+    .yt.dark { background: var(--aa-ink); }
+    .yt.dark .yt-ep { color: rgba(245,243,238,.55); }
+    .yt.dark .yt-title { color: var(--aa-off-white); }
+    .yt.dark .yt-guest { color: rgba(245,243,238,.7); }
+    .yt.dark .yt-guest strong { color: var(--aa-off-white); }
+    .yt.dark .yt-tag { background: var(--aa-off-white); color: var(--aa-black); }
+
+    /* Podcast 3000×3000 at 360×360 */
+    .pod { width: 360px; height: 360px; background: var(--aa-off-white); position: relative; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+    .pod-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; color: var(--fg3); text-transform: uppercase; margin: 0; }
+    .pod-num { font-family: var(--font-mono); font-size: 60px; color: var(--aa-black); margin: 20px 0 8px; line-height: 1; }
+    .pod-title { font-family: var(--font-display); font-size: 26px; font-weight: 300; letter-spacing: -.02em; line-height: 1.02; color: var(--aa-black); margin: 0; }
+    .pod-title em { font-style: italic; }
+    .pod-bottom { border-top: 1px solid var(--aa-line); padding-top: 12px; display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--fg3); text-transform: uppercase; }
+    .pod.dark { background: var(--aa-ink); }
+    .pod.dark .pod-eyebrow { color: rgba(245,243,238,.5); }
+    .pod.dark .pod-num, .pod.dark .pod-title { color: var(--aa-off-white); }
+    .pod.dark .pod-bottom { color: rgba(245,243,238,.5); border-color: rgba(245,243,238,.15); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .caption { font-family: var(--font-mono); font-size: 9px; color: var(--fg3); letter-spacing: .1em; text-transform: uppercase; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <p class="lead">Brand collateral · content thumbnails</p>
+  <h1>Thumbnails <em>set.</em></h1>
+
+  <div class="section-title">YouTube · 1280 × 720 (shown at half scale)</div>
+
+  <div class="grid-2">
+    <div>
+      <div class="yt">
+        <div class="yt-cover">
+          <div>
+            <p class="yt-ep">Ep. 03 · Interview</p>
+            <p class="yt-title">혼자 뛰던<br/><em>이유.</em></p>
+          </div>
+          <div class="yt-bottom">
+            <div class="yt-guest">Guest — <strong>이유정 선수</strong> · 800m</div>
+            <div class="yt-tag">For Athlete.</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Light variant · off-white on paper</div>
+    </div>
+    <div>
+      <div class="yt dark">
+        <div class="yt-cover">
+          <div>
+            <p class="yt-ep">Session Log · Field</p>
+            <p class="yt-title">400m<br/><em>Interval Day.</em></p>
+          </div>
+          <div class="yt-bottom">
+            <div class="yt-guest">With — <strong>Head Coach</strong> · 잠실 보조</div>
+            <div class="yt-tag">For Athlete.</div>
+          </div>
+        </div>
+      </div>
+      <div class="caption">Dark variant · reversed on ink</div>
+    </div>
+  </div>
+
+  <div class="section-title">Podcast · 3000 × 3000 (shown at 360)</div>
+
+  <div class="grid-2">
+    <div>
+      <div class="pod">
+        <p class="pod-eyebrow">A Long, Quiet Run · S1</p>
+        <div>
+          <div class="pod-num">03</div>
+          <p class="pod-title">혼자 뛰던<br/><em>이유.</em></p>
+        </div>
+        <div class="pod-bottom"><span>Athletics Athlete Club</span><span>2026 · 09</span></div>
+      </div>
+      <div class="caption">Podcast · light</div>
+    </div>
+    <div>
+      <div class="pod dark">
+        <p class="pod-eyebrow">A Long, Quiet Run · S1</p>
+        <div>
+          <div class="pod-num">04</div>
+          <p class="pod-title">코치가 하는<br/><em>일.</em></p>
+        </div>
+        <div class="pod-bottom"><span>Athletics Athlete Club</span><span>2026 · 10</span></div>
+      </div>
+      <div class="caption">Podcast · dark</div>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;padding:16px 20px;background:var(--aa-white);border:1px solid var(--aa-line);">
+    <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--fg3);text-transform:uppercase;margin-bottom:8px">Production Notes</div>
+    <ul style="margin:0;padding-left:20px;font-size:12px;line-height:1.7;color:var(--fg2)">
+      <li><b>YouTube</b>: 1280×720. 텍스트는 좌측 상단, 게스트/컨텍스트는 좌하단, FOR ATHLETE 태그 우하단. 사진 없이도 성립.</li>
+      <li><b>Podcast</b>: 3000×3000 정사각. 시리즈명 · 회차 번호 · 제목 · 데이트로 최소 구성. 사진 X.</li>
+      <li><b>Light vs Dark</b>: 시리즈 내에서 회차별로 번갈아 사용해 리듬 생성.</li>
+      <li><b>사진이 있다면</b>: 배경 상단 60% 사진 + 하단 40% 텍스트 오버레이 (다음 확장). 이 파일은 텍스트-only 기본형.</li>
+    </ul>
+  </div>
+</body>
+</html>

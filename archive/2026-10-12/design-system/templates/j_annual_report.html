@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Annual Report SS26</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/StatBlock.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/NotesRail.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/Timeline.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = (page, total = 8) => [
+      { k: "Document", v: "Annual Report · 샘플" },
+      { k: "Program",  v: "AA CLUB · SS26" },
+      { k: "Audience", v: "Sponsors · Partners" },
+      { k: "Page",     v: `${String(page).padStart(2, "0")} / 0${total}` },
+    ];
+
+    // ===== P1 · Cover =====
+    function P1() {
+      return (
+        <Page>
+          <MetaRail items={META(1)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <div style={{ marginTop: 100 }}>
+            <p style={{ margin: "0 0 24px", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--accent)", textTransform: "uppercase" }}>
+              Season 2026 · Annual Report
+            </p>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 96, fontWeight: 400, lineHeight: 0.94, letterSpacing: "-0.04em", color: "var(--ink)" }}>
+              한 시즌,<br/><em style={{ color: "var(--accent)", fontStyle: "italic" }}>조용히</em><br/>남긴 것.
+            </p>
+            <p style={{ margin: "36px 0 0", maxWidth: 480, fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              9명의 선수, 26회의 경기, 158일의 훈련. AA CLUB이 SS26 시즌에 함께한 이야기를 스폰서·파트너·이해관계자에게 전합니다.
+            </p>
+          </div>
+          <div style={{ position: "absolute", left: 48, right: 48, bottom: 96, paddingTop: 16, borderTop: "2px solid var(--accent)", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>
+            <div><div>Period</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>2026 · 03 → 2026 · 11</div></div>
+            <div><div>Pages</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>08 pages</div></div>
+            <div><div>Recipients</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>Sponsors · Partners</div></div>
+          </div>
+          <PageFooter left={<><strong>Athletics Athlete Club</strong> · for Athlete.</>} right="Seoul · 2026 · 11" />
+        </Page>
+      );
+    }
+
+    // ===== P2 · Season at a glance =====
+    function P2() {
+      return (
+        <Page>
+          <MetaRail items={META(2)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Season · at a glance" display="A season" displayEm="in numbers." h1="시즌 요약" />
+
+          <SectionHead h2="핵심 지표" right="AT-A-GLANCE" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+            {[
+              { figure: "9",   label: "선수",         sublabel: "TRACK · MID · LONG" },
+              { figure: "26",  label: "출전 경기",    sublabel: "OFFICIAL MEETS" },
+              { figure: "158", label: "훈련 세션",    sublabel: "COACH-LED" },
+              { figure: "12",  label: "PB 갱신",     sublabel: "9 선수 중 8명" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: "16px 16px 16px 0", borderRight: i < 3 ? "1px solid var(--line)" : "none", paddingLeft: i === 0 ? 0 : 16 }}>
+                <StatBlock {...s} />
+              </div>
+            ))}
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderBottom: "1px solid var(--line)" }}>
+            {[
+              { figure: "3",   label: "국제 대회",     sublabel: "BKK · TYO · SIN" },
+              { figure: "48",  label: "SNS 콘텐츠",   sublabel: "@athleticsathleteclub" },
+              { figure: "5",   label: "스폰서 파트너", sublabel: "SHOES · APPAREL" },
+              { figure: "0",   label: "장기 부상",     sublabel: "SEASON-ENDING" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: "16px 16px 16px 0", borderRight: i < 3 ? "1px solid var(--line)" : "none", paddingLeft: i === 0 ? 0 : 16 }}>
+                <StatBlock {...s} />
+              </div>
+            ))}
+          </div>
+
+          <LeadRule label={<>가장 큰<br/>변화는.</>}>
+            <b>PB를 갱신한 8명</b>. 시즌 초반 우려했던 하제영 선수의 폼 회복, 이서빈 선수의 국제 대회 데뷔, 그리고 팀 4×400 릴레이의 <b>3분 12.4초 시즌 베스트</b>.
+          </LeadRule>
+
+          <PageFooter left={<><strong>Section</strong> · Season at a glance</>} right="02 · 08" />
+        </Page>
+      );
+    }
+
+    // ===== P3 · Athlete highlights =====
+    function P3() {
+      return (
+        <Page>
+          <MetaRail items={META(3)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Athletes · highlights" display="Nine athletes," displayEm="one season." h1="선수별 하이라이트" />
+
+          <SectionHead h2="9인의 시즌" right="PB · KEY MEET" />
+          <DataTable
+            ariaLabel="선수 하이라이트"
+            columns={[
+              { key: "no",    header: "N°",       width: "8%",  mono: true },
+              { key: "name",  header: "Athlete",  width: "24%" },
+              { key: "event", header: "Event",    width: "14%", mono: true },
+              { key: "pb",    header: "PB",       width: "14%", align: "right" },
+              { key: "meet",  header: "Key meet", width: "40%", muted: true },
+            ]}
+            rows={[
+              { no: "017", name: "장호준 · Jang Hojune",   event: "400m",  pb: "46.82",  meet: "전국 육상 선수권 · 우승 · PB -0.33" },
+              { no: "022", name: "이유정 · Lee Yujeong",   event: "800m",  pb: "2:02.15", meet: "코리안 오픈 · 2위 · 국제 대회 자격" },
+              { no: "031", name: "이서빈 · Lee Seobin",    event: "1500m", pb: "4:14.66", meet: "아시안 챔피언십 (BKK) · 데뷔 · 8위" },
+              { no: "044", name: "하제영 · Ha Jeyoung",    event: "5000m", pb: "14:22.4", meet: "실업 대항전 · 우승 · 폼 회복 완료" },
+              { no: "058", name: "신민규 · Shin Minkyu",   event: "10000m", pb: "29:41.2", meet: "봄 그랑프리 · 3위" },
+              { no: "063", name: "황지향 · Hwang Jihyang", event: "1500m", pb: "4:18.02", meet: "실내 시즌 · 우승" },
+              { no: "079", name: "김세하 · Kim Sehah",     event: "800m",  pb: "2:04.88", meet: "봄 그랑프리 · 2위 · 시즌 첫 참가" },
+              { no: "081", name: "박현우 · Park Hyunwoo",  event: "3000m 장애물", pb: "8:56.4", meet: "가을 마스터스 · 우승" },
+              { no: "092", name: "정혜린 · Jung Hyerin",   event: "5000m", pb: "15:44.8", meet: "실업 대항전 · 5위 · 국제 대회 초청" },
+            ]}
+          />
+
+          <div style={{ marginTop: 24, fontFamily: "var(--font-serif)", fontSize: 22, lineHeight: 1.35, color: "var(--ink)", fontStyle: "italic", letterSpacing: "-0.01em", padding: "20px 24px", borderTop: "1px solid var(--ink)", borderBottom: "1px solid var(--line)" }}>
+            "우리는 코치가 아니라 방향을 제안하는 사람들. 결과를 낸 건 선수 자신입니다."
+            <div style={{ marginTop: 12, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase", fontStyle: "normal" }}>
+              — Head Coach · Jang Hojune
+            </div>
+          </div>
+
+          <PageFooter left={<><strong>Section</strong> · Athlete highlights</>} right="03 · 08" />
+        </Page>
+      );
+    }
+
+    // ===== P4 · Meets timeline =====
+    function P4() {
+      return (
+        <Page>
+          <MetaRail items={META(4)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Meets · chronological" display="26 races," displayEm="9 months." h1="시즌 경기 타임라인" />
+
+          <SectionHead h2="주요 경기" right="MAR → NOV · TOP 10" />
+          <Timeline steps={[
+            { title: "봄 그랑프리 · 대구",           time: "2026 · 04 · 20", body: "시즌 개막. 5명 출전 · 3명 톱10 진입." },
+            { title: "전국 실업 대항전",             time: "2026 · 05 · 11", body: "하제영 5000m 우승 · 이유정 800m PB." },
+            { title: "아시안 육상 선수권 (BKK)",     time: "2026 · 06 · 03", body: "장호준 400m 4위 · 이서빈 1500m 데뷔." },
+            { title: "코리안 오픈 SS26",             time: "2026 · 07 · 12", body: "이유정 800m 2위 · 국제 대회 자격 획득." },
+            { title: "전국 육상 선수권",             time: "2026 · 08 · 28", body: "장호준 400m 우승 · 시즌 최대 이벤트." },
+            { title: "가을 마스터스",               time: "2026 · 10 · 05", body: "박현우 3000m 장애물 우승." },
+          ]} />
+
+          <PageFooter left={<><strong>Section</strong> · Meets timeline</>} right="04 · 08" />
+        </Page>
+      );
+    }
+
+    // ===== P5 · Training program =====
+    function P5() {
+      return (
+        <Page>
+          <MetaRail items={META(5)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Training · methodology" display="How we" displayEm="show up." h1="시즌 훈련 프로그램" />
+
+          <LeadRule label={<>주 3~5회<br/>코치 세션.</>}>
+            AAC의 훈련은 <b>선수 기존 소속을 존중</b>합니다. 코치 세션은 방향 조정을 위한 것이며, 강제 참여가 아닙니다. 시즌 평균 <b>주 3~5회</b>, 총 <b>158세션</b>이 진행되었습니다.
+          </LeadRule>
+
+          <SectionHead h2="세션 유형 분포" right="158 SESSIONS TOTAL" />
+          <DataTable
+            ariaLabel="세션 유형"
+            columns={[
+              { key: "type",    header: "Type",     width: "26%" },
+              { key: "count",   header: "Count",    width: "14%", align: "right", mono: true },
+              { key: "ratio",   header: "%",        width: "14%", align: "right", mono: true },
+              { key: "note",    header: "Note",     width: "46%", muted: true },
+            ]}
+            rows={[
+              { type: "인터벌",           count: "52", ratio: "33%", note: "400m·800m·1200m 인터벌 · 시즌 중반 집중" },
+              { type: "장거리 지속주",     count: "38", ratio: "24%", note: "임계속도 유지 · 5000m 이상 종목 중심" },
+              { type: "커브 워크",         count: "24", ratio: "15%", note: "400m 종목 · 커브 진입 각도 개선" },
+              { type: "폼 · 스킬",         count: "22", ratio: "14%", note: "슬로우 러닝 + 카메라 피드백" },
+              { type: "회복 · 크로스",     count: "22", ratio: "14%", note: "수영·자전거 · 부상 예방" },
+            ]}
+          />
+
+          <NotesRail notes={[
+            { label: "AVERAGE",       value: "주 3.5회",     desc: "선수별 편차 있음 (2~5회)" },
+            { label: "REMOTE",        value: "68 세션",       desc: "화상 폼 리뷰 포함" },
+            { label: "GROUP",         value: "34 세션",       desc: "팀 릴레이 · 페이스 러닝" },
+          ]} />
+
+          <PageFooter left={<><strong>Section</strong> · Training program</>} right="05 · 08" />
+        </Page>
+      );
+    }
+
+    // ===== P6 · Sponsorship activation =====
+    function P6() {
+      return (
+        <Page>
+          <MetaRail items={META(6)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Sponsors · activation" display="Five partners," displayEm="one direction." h1="스폰서 파트너십 활성화" />
+
+          <SectionHead h2="파트너별 활성화" right="SS26 · 5 PARTNERS" />
+          <DataTable
+            ariaLabel="스폰서 활성화"
+            columns={[
+              { key: "partner",   header: "Partner",   width: "26%" },
+              { key: "cat",       header: "Category",  width: "18%" },
+              { key: "content",   header: "SNS posts", width: "14%", align: "right", mono: true },
+              { key: "reach",     header: "Reach",     width: "14%", align: "right", mono: true },
+              { key: "note",      header: "Note",      width: "28%", muted: true },
+            ]}
+            rows={[
+              { partner: "Partner A",   cat: "Shoes",       content: "18",   reach: "142K",  note: "메인 스폰서 · 전 시즌" },
+              { partner: "Partner B",   cat: "Eyewear",     content: "12",   reach: "88K",   note: "여름 시즌" },
+              { partner: "Partner C",   cat: "Nutrition",   content: "9",    reach: "64K",   note: "지속 계약 중" },
+              { partner: "Partner D",   cat: "Apparel",     content: "6",    reach: "42K",   note: "시즌 후반 도입" },
+              { partner: "Partner E",   cat: "Recovery",    content: "3",    reach: "18K",   note: "파일럿 협업" },
+            ]}
+          />
+
+          <div style={{ marginTop: 24 }}>
+            <LeadRule label={<>보상 정산은<br/>지연 없이.</>}>
+              시범운영 <b>참여보상 총액 <span style={{ fontFamily: "var(--font-mono)" }}>7,800,000원</span></b>. 9명 평균 <b><span style={{ fontFamily: "var(--font-mono)" }}>867,000원</span></b>. 지급 지연 사례 <b>0건</b>.
+            </LeadRule>
+          </div>
+
+          <PageFooter left={<><strong>Section</strong> · Sponsorship activation</>} right="06 · 08" />
+        </Page>
+      );
+    }
+
+    // ===== P7 · Financial summary =====
+    function P7() {
+      return (
+        <Page>
+          <MetaRail items={META(7)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Financials · summary" display="Where the" displayEm="money went." h1="재무 요약" />
+
+          <SectionHead h2="수입 · 지출" right="SS26 · KRW · TAX-INCL." />
+          <DataTable
+            ariaLabel="재무 요약"
+            columns={[
+              { key: "cat",   header: "Category",  width: "32%" },
+              { key: "in",    header: "Inflow",    width: "22%", align: "right", mono: true },
+              { key: "out",   header: "Outflow",   width: "22%", align: "right", mono: true },
+              { key: "net",   header: "Net",       width: "24%", align: "right", mono: true },
+            ]}
+            rows={[
+              { cat: "매니지먼트 수수료 (20%)", in: "38,400,000",  out: "—",           net: "+38,400,000" },
+              { cat: "스폰서 커미션",         in: "24,000,000",  out: "—",           net: "+24,000,000" },
+              { cat: "선수 참여보상 지급",     in: "—",           out: "7,800,000",   net: "-7,800,000" },
+              { cat: "훈련 시설·장비",        in: "—",           out: "12,400,000",  net: "-12,400,000" },
+              { cat: "코치·매니저 급여",      in: "—",           out: "26,800,000",  net: "-26,800,000" },
+              { cat: "제작·촬영 (Contents)",   in: "—",           out: "6,200,000",   net: "-6,200,000" },
+              { cat: "운영·법무·회계",        in: "—",           out: "4,800,000",   net: "-4,800,000" },
+            ]}
+          />
+
+          <div style={{ marginTop: 20, padding: "20px 24px", background: "var(--surface-muted)", borderTop: "2px solid var(--accent)", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+            <div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase" }}>Total inflow</div>
+              <div style={{ marginTop: 6, fontFamily: "var(--font-mono)", fontSize: 22, color: "var(--ink)", fontVariantNumeric: "tabular-nums" }}>62,400,000원</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase" }}>Total outflow</div>
+              <div style={{ marginTop: 6, fontFamily: "var(--font-mono)", fontSize: 22, color: "var(--ink)", fontVariantNumeric: "tabular-nums" }}>58,000,000원</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--accent)", textTransform: "uppercase" }}>Net · reinvested</div>
+              <div style={{ marginTop: 6, fontFamily: "var(--font-mono)", fontSize: 22, color: "var(--accent)", fontVariantNumeric: "tabular-nums", fontWeight: 500 }}>+4,400,000원</div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 20, fontSize: 12, lineHeight: 1.65, color: "var(--ink-2)" }}>
+            <b>* 샘플 안내</b>: 상기 수치와 회계·재투자 설명은 디자인 예시입니다. 실제 회계 자료나 확정 예산을 나타내지 않습니다. 잉여 <b>4.4M원</b>도 예시 수치입니다.
+          </div>
+
+          <PageFooter left={<><strong>Section</strong> · Financial summary · Tax-inclusive</>} right="07 · 08" />
+        </Page>
+      );
+    }
+
+    // ===== P8 · Thanks + next season =====
+    function P8() {
+      return (
+        <Page>
+          <MetaRail items={META(8)} />
+          <PageHeader code="AAC-AR · SS26" />
+          <EditorialHero eyebrow="Thanks · looking ahead" display="Thank you." displayEm="See you at SS27." h1="감사 · 다음 시즌" />
+
+          <div style={{ marginTop: 24, padding: "20px 28px", background: "var(--surface-muted)", borderTop: "1px solid var(--ink)", borderBottom: "1px solid var(--line)" }}>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 24, lineHeight: 1.4, color: "var(--ink)", fontStyle: "italic", letterSpacing: "-0.01em" }}>
+              "한 시즌 동안 우리 선수들의 훈련·성적·이야기를 함께 만들어 주신 <br/>모든 스폰서·소속기관·가족에게 감사드립니다."
+            </p>
+            <div style={{ marginTop: 12, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase" }}>
+              — Athletics Athlete Club · 2026 · 11
+            </div>
+          </div>
+
+          <SectionHead h2="SS27 준비 사항" right="2026 · 12 → 2027 · 03" />
+          <Timeline steps={[
+            { title: "SS26 결산 미팅",           time: "2026 · 12 · 05", body: "선수·코치·파트너 합동 결산. 개인별 시즌 리뷰 배포." },
+            { title: "SS27 계약 갱신",           time: "2026 · 12 · 20", body: "선수 재계약 · 신규 영입 협의. 스폰서 카테고리 재정비." },
+            { title: "겨울 훈련 프로그램",       time: "2027 · 01 · 05", body: "실내 · 웨이트 · 크로스 트레이닝 위주. 부상 예방 중점." },
+            { title: "SS27 시즌 개막",           time: "2027 · 03 · 15", body: "봄 그랑프리 참가. 실외 시즌 시작." },
+          ]} />
+
+          <PageFooter left={<><strong>End of report</strong> · SS26</>} right={<>@athleticsathleteclub · contact@athleticsathleteclub.kr</>} />
+        </Page>
+      );
+    }
+
+    function App() {
+      return (<><P1 /><P2 /><P3 /><P4 /><P5 /><P6 /><P7 /><P8 /></>);
+    }
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>

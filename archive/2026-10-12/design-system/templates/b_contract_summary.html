@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC · 계약 요약 (샘플)</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/NotesRail.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = [
+      { k: "Document", v: "Contract Summary · 샘플" },
+      { k: "Program",  v: "AAC Athlete Agreement" },
+      { k: "Audience", v: "AAC Athletes" },
+      { k: "Page",     v: "01 / 02" },
+    ];
+
+    function ContractSummary() {
+      return (
+        <>
+        <Page>
+          <MetaRail items={META} />
+          <PageHeader code="AAC-CN · v1.0" />
+          <EditorialHero
+            eyebrow="Athlete agreement · at-a-glance"
+            display="What you sign,"
+            displayEm="at a glance."
+            h1="AAC 선수 계약 요약"
+          />
+
+          <LeadRule label={<>요약본은<br />참고용입니다.</>}>
+            본 요약본은 이해를 돕기 위한 참고 자료입니다. 실제 권리·의무는 <b>계약서 원문</b>이 우선하며, 조항 번호가 표시된 항목은 계약서의 해당 조항을 그대로 참조합니다.
+          </LeadRule>
+
+          <SectionHead h2="핵심 조건 스캔" right="AT-A-GLANCE · 6 ROWS" />
+          <DataTable
+            ariaLabel="계약 핵심 조건"
+            columns={[
+              { key: "clause", header: "Clause",  width: "12%", mono: true },
+              { key: "topic",  header: "항목",     width: "24%" },
+              { key: "detail", header: "요약",     width: "48%", muted: true },
+              { key: "value",  header: "수치·기간", width: "16%", align: "right" },
+            ]}
+            rows={[
+              { clause: "§ 3",  topic: "계약 기간",       detail: "1년 · 상호 서면 합의로 갱신",           value: "12 개월" },
+              { clause: "§ 5",  topic: "매니지먼트 수수료", detail: "협찬·출연·상금 등 대외 수익의 정률",      value: "20%" },
+              { clause: "§ 7",  topic: "훈련 참여",       detail: "월 최소 코치 세션 (정기·비대면 포함)",   value: "월 12 회" },
+              { clause: "§ 9",  topic: "콘텐츠 참여",     detail: "공동게시 원칙 · 별도 운영기준 문서 참조",  value: "월 최대 10 만원" },
+              { clause: "§ 12", topic: "지식재산 · 초상권", detail: "AAC 공식 채널 게시 목적 사용 허락",       value: "비독점" },
+              { clause: "§ 15", topic: "종료 통지",       detail: "상호 서면 통지로 종료 · 정산은 다음달 말", value: "30 일 前" },
+            ]}
+          />
+
+          <PageFooter left={<><strong>샘플 출처</strong> · 01_AAC_선수_표준계약서_v1.0 (통합본)</>} right="원문 우선 · 01 / 02" />
+        </Page>
+        <Page>
+          <MetaRail items={META.map(item => item.k === "Page" ? {...item, v: "02 / 02"} : item)} />
+          <PageHeader code="AAC-CN · v1.0" />
+          <EditorialHero eyebrow="Athlete agreement · continued" display="Before you sign." h1="서명 전 확인 사항" />
+
+          <NotesRail notes={[
+            { label: "TAX",       value: "세전 표시",     desc: "모든 금액은 세전 기준이며 원천세·부가세는 별도 처리합니다." },
+            { label: "GOVERNING", value: "대한민국 법령", desc: "분쟁 시 서울중앙지방법원을 관할로 합니다." },
+            { label: "AMENDMENT", value: "서면 원칙",     desc: "구두 합의는 효력이 없으며 서면 부속합의서로만 변경합니다." },
+          ]} />
+
+          <div style={{ marginTop: 24 }}>
+            <LeadRule label={<>불확실할 때는<br />물어보세요.</>}>
+              계약서 원문에서 의문이 있는 조항은 <b>서명 전</b>에 회사 담당자 또는 별도 자문에게 확인하세요. 서명 이후에는 부속합의서로만 조정이 가능합니다.
+            </LeadRule>
+          </div>
+
+          <PageFooter
+            left={<><strong>샘플 출처</strong> · 01_AAC_선수_표준계약서_v1.0 (통합본)</>}
+            right={<>요약본과 원문이 다를 경우 원문이 우선합니다.</>}
+          />
+        </Page>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<ContractSummary />);
+  </script>
+</body>
+</html>

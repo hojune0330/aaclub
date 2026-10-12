@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Uniform Print Spec</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    // Simple front/back garment silhouettes drawn with SVG (allowed — brand primitive shapes)
+    function Jersey({ side = "front" }) {
+      // 200 × 260 svg
+      const spots = side === "front"
+        ? [
+            { x: 100, y: 88, r: 22, label: "MAIN", info: "가슴 우측 · 8cm 폭 · STACK 로고" },
+            { x: 100, y: 180, r: 4, label: "TAG", info: "명치 근처 · FOR ATHLETE 태그 (선택)" },
+          ]
+        : [
+            { x: 100, y: 100, r: 30, label: "BIB", info: "등판 · 배번 30cm · IBM Plex Mono 900" },
+            { x: 100, y: 200, r: 22, label: "STACK", info: "등판 하단 · STACK 로고 12cm" },
+          ];
+      return (
+        <svg viewBox="0 0 200 260" style={{ width: "100%", height: "auto", display: "block" }}>
+          {/* Jersey silhouette */}
+          <path d="M60 20 L100 10 L140 20 L170 40 L155 80 L145 65 L145 240 L55 240 L55 65 L45 80 L30 40 Z" fill="var(--surface-muted)" stroke="var(--ink)" strokeWidth="1" />
+          {/* Neckline */}
+          <path d="M85 15 Q100 32 115 15" fill="none" stroke="var(--ink)" strokeWidth="1" />
+          {/* Spots */}
+          {spots.map((s, i) => (
+            <g key={i}>
+              <circle cx={s.x} cy={s.y} r={s.r} fill="none" stroke="var(--accent)" strokeWidth="1" strokeDasharray="2 2" />
+              <text x={s.x} y={s.y + 3} textAnchor="middle" fontFamily="IBM Plex Mono, monospace" fontSize="8" fill="var(--accent)" fontWeight="500">{s.label}</text>
+            </g>
+          ))}
+        </svg>
+      );
+    }
+
+    function UniformSpec() {
+      return (
+        <Page>
+          <MetaRail items={[
+            { k: "Document", v: "Uniform Spec" },
+            { k: "Program",  v: "AAC · SS26" },
+            { k: "Audience", v: "Print Vendor" },
+            { k: "Page",     v: "01 / 01" },
+          ]} />
+          <PageHeader code="AAC-UN · v1.0" />
+
+          <EditorialHero
+            eyebrow="Training uniform · print spec"
+            display="Print"
+            displayEm="quietly."
+            h1="AA CLUB 유니폼 · 프린트 위치"
+          />
+
+          <SectionHead h2="위치 다이어그램" right="FRONT · BACK · SILICONE HEAT TRANSFER 권장" />
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginTop: 20 }}>
+            {[
+              { side: "front", title: "FRONT · 앞면" },
+              { side: "back",  title: "BACK · 뒷면" },
+            ].map((v, i) => (
+              <div key={i} style={{ border: "1px solid var(--line)", padding: 20, background: "var(--paper)" }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase", marginBottom: 10 }}>{v.title}</div>
+                <Jersey side={v.side} />
+              </div>
+            ))}
+          </div>
+
+          <SectionHead h2="프린트 스펙" right="ALL DIMENSIONS IN CM" />
+          <DataTable
+            ariaLabel="프린트 사양"
+            columns={[
+              { key: "loc",   header: "Position",  width: "20%" },
+              { key: "logo",  header: "Logo",      width: "18%" },
+              { key: "size",  header: "Size",      width: "14%", align: "right", mono: true },
+              { key: "tech",  header: "Method",    width: "22%" },
+              { key: "color", header: "Color",     width: "26%", muted: true },
+            ]}
+            rows={[
+              { loc: "앞 가슴 우측",  logo: "STACK (S2)",  size: "8 cm",  tech: "실리콘 열전사",  color: "본 유니폼 색 반전 (다크 지 → White · 라이트 지 → Black)" },
+              { loc: "앞 명치 (선택)", logo: "FOR ATHLETE 태그", size: "3 × 0.8 cm", tech: "실리콘 열전사",  color: "본 유니폼 색 반전" },
+              { loc: "등 상단 (배번)", logo: "숫자 3자리",  size: "30 cm 높이", tech: "실리콘 열전사",  color: "본 유니폼 색 반전 · IBM Plex Mono 900" },
+              { loc: "등 하단",       logo: "STACK (S2)",  size: "12 cm",  tech: "실리콘 열전사",  color: "본 유니폼 색 반전" },
+              { loc: "좌 소매 (선택)", logo: "SHORT (SF2)", size: "4 cm",  tech: "실리콘 열전사",  color: "본 유니폼 색 반전" },
+            ]}
+          />
+
+          <SectionHead h2="원단·색상 선택" right="AAC ISSUED · SS26" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 0, borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+            {[
+              { swatch: "#0E1412", name: "Ink Black",   note: "메인 훈련복 · 로고 흰색 반전" },
+              { swatch: "#F5F3EE", name: "Off White",   note: "경기용 · 로고 검정" },
+              { swatch: "#0F1B3D", name: "Deep Navy",   note: "액센트 저지 · 로고 흰색 반전 · 시즌 특별 유닛" },
+            ].map((s, i, arr) => (
+              <div key={i} style={{
+                padding: `16px ${i === arr.length - 1 ? 0 : 12}px 16px ${i === 0 ? 0 : 12}px`,
+                borderRight: i === arr.length - 1 ? "none" : "1px solid var(--line)",
+                display: "flex",
+                gap: 12,
+                alignItems: "center",
+              }}>
+                <div style={{ width: 36, height: 48, background: s.swatch, border: "1px solid var(--line)" }} />
+                <div>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>{s.name}</div>
+                  <div style={{ fontSize: 11, lineHeight: 1.5, color: "var(--ink-2)", marginTop: 4 }}>{s.note}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 24, padding: "18px 20px", background: "var(--surface-muted)", borderTop: "1px solid var(--ink)" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase", marginBottom: 8 }}>Delivery Files</div>
+            <ul style={{ margin: 0, paddingLeft: 20, fontSize: 12, lineHeight: 1.8, color: "var(--ink-2)" }}>
+              <li>SVG (outline 변환된 원본) · <code style={{ fontFamily: "var(--font-mono)" }}>assets/logos/AA-CLUB_STACK_white.svg</code></li>
+              <li>PNG 5x (인쇄 대비) · <code style={{ fontFamily: "var(--font-mono)" }}>AA-CLUB_STACK_white_5x.png</code></li>
+              <li>배번 서체 · IBM Plex Mono 900 · outline 변환 필수</li>
+              <li>Pantone 매칭: Black = <b>Process Black</b> · White = <b>Pantone Cool Gray 1C</b> · Navy = <b>Pantone 282C</b></li>
+            </ul>
+          </div>
+
+          <PageFooter
+            left={<><strong>Source</strong> · AAC Brand System · Logo minimum 3cm on textile</>}
+            right={<>uniform@athleticsathleteclub.kr</>}
+          />
+        </Page>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<UniformSpec />);
+  </script>
+</body>
+</html>

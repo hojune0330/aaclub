@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC · 후원 제안서 커버 (샘플)</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = [
+      { k: "Document", v: "Sponsorship Proposal · 샘플" },
+      { k: "Program",  v: "AA CLUB · SS26" },
+      { k: "Audience", v: "Prospective Partner" },
+      { k: "Page",     v: "COVER" },
+    ];
+
+    function Cover() {
+      return (
+        <Page>
+          <MetaRail items={META} />
+          <PageHeader code="AAC-SP · SS26 · N° 001" />
+
+          {/* Center-set editorial cover */}
+          <div style={{
+            marginTop: 100,
+            paddingBottom: 40,
+          }}>
+            <p style={{
+              margin: "0 0 32px",
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              letterSpacing: "0.14em",
+              color: "var(--accent)",
+              textTransform: "uppercase",
+            }}>
+              Season 2026 · Track & Field
+            </p>
+            <p style={{
+              margin: 0,
+              fontFamily: "var(--font-serif)",
+              fontSize: 92,
+              fontWeight: 400,
+              lineHeight: 0.96,
+              letterSpacing: "-0.04em",
+              color: "var(--ink)",
+              maxWidth: 640,
+            }}>
+              Run with<br/>
+              <em style={{ color: "var(--accent)", fontStyle: "italic" }}>the athletes</em><br/>
+              who take running<br/>
+              seriously.
+            </p>
+            <div style={{
+              marginTop: 36,
+              maxWidth: 520,
+              fontFamily: "var(--font-sans)",
+              fontSize: 15,
+              lineHeight: 1.65,
+              color: "var(--ink-2)",
+            }}>
+              혼자 뛰던 선수가 함께 성장할 수 있도록.<br />
+              AA CLUB이 육상 선수 9인과 SS26 시즌을 함께 뛸 파트너를 찾고 있습니다.
+            </div>
+          </div>
+
+          {/* Meta strip near bottom */}
+          <div style={{
+            position: "absolute",
+            left: 48,
+            right: 48,
+            bottom: 96,
+            paddingTop: 16,
+            borderTop: "2px solid var(--accent)",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: 24,
+            fontFamily: "var(--font-mono)",
+            fontSize: 11,
+            letterSpacing: "0.08em",
+            color: "var(--ink-3)",
+            textTransform: "uppercase",
+          }}>
+            <div>
+              <div>Athletes</div>
+              <div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>9 selected</div>
+            </div>
+            <div>
+              <div>Categories open</div>
+              <div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>Shoes · Eyewear · Nutrition</div>
+            </div>
+            <div>
+              <div>Deck length</div>
+              <div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>18 pages · A4</div>
+            </div>
+          </div>
+
+          <PageFooter
+            left={<><strong>Athletics Athlete Club</strong> · for Athlete.</>}
+            right={<>contact@athleticsathleteclub.kr</>}
+          />
+        </Page>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<Cover />);
+  </script>
+</body>
+</html>

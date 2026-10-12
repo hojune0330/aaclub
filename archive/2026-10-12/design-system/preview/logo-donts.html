@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px 28px;background:var(--aa-off-white)}
+  .head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--aa-line);margin-bottom:20px}
+  .head h2{margin:0;font-family:var(--font-display);font-style:italic;font-weight:400;font-size:22px;letter-spacing:-.02em}
+  .head span{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--aa-gray-500);text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--aa-line);border-bottom:1px solid var(--aa-line)}
+  .cell{padding:20px 14px;border-right:1px solid var(--aa-line);display:flex;flex-direction:column;align-items:center;gap:10px;position:relative}
+  .cell:last-child{border-right:0}
+  .box{width:100%;height:80px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .box img{display:block}
+  .strike{position:absolute;inset:0;pointer-events:none}
+  .strike:before{content:'';position:absolute;left:8px;right:8px;top:50%;height:1px;background:var(--aa-black);transform:rotate(-14deg)}
+  .lbl{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--aa-gray-500);text-transform:uppercase;text-align:center;line-height:1.5}
+  .no{color:var(--aa-black);font-weight:700}
+</style></head>
+<body>
+<div class="head"><h2>Don't</h2><span>4 forbidden manipulations</span></div>
+<div class="grid">
+  <div class="cell">
+    <div class="box"><img src="../assets/logos/AA-CLUB_MAIN_black_1x.png" alt="Stretched" style="width:200px;height:60px;object-fit:fill"></div>
+    <div class="strike"></div>
+    <div class="lbl"><span class="no">STRETCH 금지</span><br>비율 유지</div>
+  </div>
+  <div class="cell">
+    <div class="box"><img src="../assets/logos/AA-CLUB_MAIN_black_1x.png" alt="Rotated" style="width:180px;transform:rotate(-8deg)"></div>
+    <div class="strike"></div>
+    <div class="lbl"><span class="no">ROTATE 금지</span><br>수평 유지</div>
+  </div>
+  <div class="cell">
+    <div class="box" style="background:linear-gradient(90deg,#ff6a00,#ee0979)"><img src="../assets/logos/AA-CLUB_MAIN_white_1x.png" alt="Gradient bg" style="width:180px"></div>
+    <div class="strike"></div>
+    <div class="lbl"><span class="no">그라디언트 배경 금지</span><br>flat 컬러만</div>
+  </div>
+  <div class="cell">
+    <div class="box"><img src="../assets/logos/AA-CLUB_MAIN_navy_1x.png" alt="Recolored" style="width:180px;filter:hue-rotate(120deg) saturate(2)"></div>
+    <div class="strike"></div>
+    <div class="lbl"><span class="no">다른 컬러 금지</span><br>Black·Navy·White만</div>
+  </div>
+</div>
+</body></html>
