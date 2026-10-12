@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AAC · 선수 프로필 (샘플)</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>
+    body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/StatBlock.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = [
+      { k: "Document", v: "Athlete Profile · 샘플" },
+      { k: "Program",  v: "AAC Sponsorship" },
+      { k: "Audience", v: "Prospective Sponsors" },
+      { k: "Page",     v: "01 / 02" },
+    ];
+
+    function PortraitSlot() {
+      // Fixed 4:5 slot — user drops a real photo here.
+      return (
+        <div style={{
+          width: "100%",
+          aspectRatio: "4 / 5",
+          background: "var(--surface-muted)",
+          border: "1px solid var(--line)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: 24,
+          boxSizing: "border-box",
+        }}>
+          <div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.12em", color: "var(--ink-3)", textTransform: "uppercase" }}>Portrait · 4:5</div>
+            <div style={{ marginTop: 6, fontSize: 12, color: "var(--ink-2)" }}>선수 정면·바스트업 사진</div>
+          </div>
+        </div>
+      );
+    }
+
+    function AthleteProfile() {
+      return (
+        <>
+        <Page>
+          <MetaRail items={META} />
+          <PageHeader code="AAC-PF · v1.0" />
+
+          {/* Top: portrait + hero */}
+          <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 32, marginTop: 28, marginBottom: 24 }}>
+            <PortraitSlot />
+            <div>
+              <p style={{ margin: "0 0 12px", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", color: "var(--accent)", textTransform: "uppercase" }}>
+                Track & Field · 400m
+              </p>
+              <p style={{
+                margin: 0,
+                fontFamily: "var(--font-serif)",
+                fontSize: 44,
+                fontWeight: 400,
+                lineHeight: 0.98,
+                letterSpacing: "-0.03em",
+              }}>
+                Hojune<br /><em style={{ color: "var(--accent)", fontStyle: "italic" }}>Jang</em>
+              </p>
+              <h1 style={{ margin: "12px 0 0", fontFamily: "var(--font-sans)", fontSize: 24, fontWeight: 500, letterSpacing: "-0.02em" }}>
+                장호준 · 400m
+              </h1>
+              <div style={{ marginTop: 16, borderTop: "1px solid var(--line)", paddingTop: 12, display: "grid", gridTemplateColumns: "auto 1fr", gap: "6px 20px", fontSize: 15, lineHeight: 1.5 }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>Born</div>
+                <div style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}>1998.03.14 · 서울</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>Height / Weight</div>
+                <div style={{ fontFamily: "var(--font-mono)", color: "var(--ink)" }}>182cm · 71kg</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>Team</div>
+                <div style={{ color: "var(--ink)" }}>AA CLUB · 서울</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>Coach</div>
+                <div style={{ color: "var(--ink)" }}>Head Coach — Jang Hojune</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Personal bests */}
+          <SectionHead h2="개인 최고 기록 (PB)" right="AS OF 2026 · 09" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+            {[
+              { figure: "46.82", label: "400m", sublabel: "2026 KOR CH" },
+              { figure: "21.14", label: "200m", sublabel: "2025 SEOUL" },
+              { figure: "10.51", label: "100m", sublabel: "2024 DAEGU" },
+              { figure: "3:12.4", label: "4×400m Relay", sublabel: "TEAM · 2026" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: "16px 16px 16px 0", borderRight: i < 3 ? "1px solid var(--line)" : "none", paddingLeft: i === 0 ? 0 : 16 }}>
+                <StatBlock {...s} />
+              </div>
+            ))}
+          </div>
+
+          <PageFooter left={<><strong>샘플 출처</strong> · AAC Athlete Register 2026-09</>} right="01 / 02" />
+        </Page>
+        <Page>
+          <MetaRail items={META.map(item => item.k === "Page" ? {...item, v: "02 / 02"} : item)} />
+          <PageHeader code="AAC-PF · v1.0" />
+          <EditorialHero eyebrow="Athlete profile · continued" display="Season record." h1="경기와 후원 안내" />
+
+          {/* Recent races */}
+          <SectionHead h2="최근 경기" right="LAST 6 · CHRONOLOGICAL" />
+          <DataTable
+            ariaLabel="최근 경기 목록"
+            columns={[
+              { key: "date",   header: "Date",   width: "16%", mono: true },
+              { key: "meet",   header: "Meet",   width: "34%" },
+              { key: "event",  header: "Event",  width: "16%" },
+              { key: "result", header: "Result", width: "16%", align: "right" },
+              { key: "place",  header: "Place",  width: "18%", align: "right" },
+            ]}
+            rows={[
+              { date: "2026.08.28", meet: "전국 육상 선수권",             event: "400m", result: "46.82",  place: "1st" },
+              { date: "2026.07.12", meet: "코리안 오픈 SS26",             event: "400m", result: "47.15",  place: "2nd" },
+              { date: "2026.06.03", meet: "아시안 육상 선수권 (BKK)",      event: "400m", result: "47.02",  place: "4th" },
+              { date: "2026.05.11", meet: "전국 실업 대항전",             event: "200m", result: "21.14",  place: "1st" },
+              { date: "2026.04.20", meet: "봄 그랑프리 · 대구",           event: "400m", result: "47.44",  place: "3rd" },
+              { date: "2026.03.17", meet: "실내 시즌 오프너 · 강원",      event: "400m", result: "48.10",  place: "1st" },
+            ]}
+          />
+
+          {/* Sponsorship status */}
+          <div style={{ marginTop: 24 }}>
+            <LeadRule label={<>후원<br />오픈 상태</>}>
+              <b>메인 스폰서 · 슈즈 · 아이웨어</b> 카테고리가 열려 있습니다. 종목·트레이닝 웨어는 팀 계약으로 커버됩니다. 협업 문의는 <b>contact@athleticsathleteclub.kr</b> 로 회신 부탁드립니다.
+            </LeadRule>
+          </div>
+
+          <PageFooter
+            left={<><strong>샘플 출처</strong> · AAC Athlete Register 2026-09</>}
+            right={<>@athleticsathleteclub</>}
+          />
+        </Page>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<AthleteProfile />);
+  </script>
+</body>
+</html>

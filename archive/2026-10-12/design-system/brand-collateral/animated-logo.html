@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Animated Logo</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { margin: 0; padding: 32px; background: var(--aa-gray-50); font-family: var(--font-body-kr); }
+    .lead { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 0 0 8px; }
+    h1 { font-family: var(--font-display); font-weight: 300; font-size: 44px; letter-spacing: -.02em; margin: 0 0 24px; }
+    h1 em { font-style: italic; }
+
+    .section-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 40px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--aa-black); }
+
+    .stage {
+      background: var(--aa-off-white);
+      border: 1px solid var(--aa-line);
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .stage.dark { background: var(--aa-ink); }
+    .stage-label { position: absolute; top: 12px; left: 16px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; }
+    .stage.dark .stage-label { color: rgba(245,243,238,.4); }
+    .replay { position: absolute; top: 10px; right: 12px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; background: transparent; border: 1px solid var(--aa-line); padding: 4px 10px; cursor: pointer; }
+    .stage.dark .replay { color: rgba(245,243,238,.6); border-color: rgba(245,243,238,.2); }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+
+    /* ============ ANIMATION 1 · TYPE-BUILD ============ */
+    /* Instrument-like: "Athletics" fade+slide-up, then italic "Athlete" fade, then "Club" fade */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .anim-1 { font-family: var(--font-display); font-weight: 300; font-size: 72px; letter-spacing: -.03em; color: var(--aa-black); }
+    .anim-1 .p1 { display: inline-block; animation: fadeUp 900ms 100ms cubic-bezier(.2,.7,.2,1) both; }
+    .anim-1 .p2 { display: inline-block; font-style: italic; animation: fadeUp 900ms 700ms cubic-bezier(.2,.7,.2,1) both; }
+    .anim-1 .p3 { display: inline-block; animation: fadeUp 900ms 1200ms cubic-bezier(.2,.7,.2,1) both; }
+    .dark .anim-1 { color: var(--aa-off-white); }
+
+    /* ============ ANIMATION 2 · RULE-REVEAL ============ */
+    /* A horizontal line draws first, then wordmark fades in above it */
+    @keyframes drawRule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .anim-2-wrap { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .anim-2-wm { font-family: var(--font-display); font-weight: 300; font-size: 58px; letter-spacing: -.03em; color: var(--aa-black); opacity: 0; animation: fadeIn 800ms 900ms ease-out both; }
+    .anim-2-wm em { font-style: italic; }
+    .anim-2-rule { height: 2px; width: 460px; background: var(--aa-black); transform-origin: center; animation: drawRule 700ms 200ms cubic-bezier(.2,.7,.2,1) both; }
+    .anim-2-tag { opacity: 0; animation: fadeIn 500ms 1400ms ease-out both; background: var(--aa-black); color: var(--aa-off-white); padding: 5px 12px; font-family: var(--font-eyebrow); font-weight: 700; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+    .dark .anim-2-wm { color: var(--aa-off-white); }
+    .dark .anim-2-rule { background: var(--aa-off-white); }
+    .dark .anim-2-tag { background: var(--aa-off-white); color: var(--aa-black); }
+
+    /* ============ ANIMATION 3 · COMPRESS ============ */
+    /* Full wordmark shrinks smoothly to SHORT form */
+    @keyframes toShort {
+      0%   { font-size: 68px; letter-spacing: -.03em; }
+      50%  { font-size: 68px; letter-spacing: -.03em; }
+      75%  { font-size: 48px; letter-spacing: -.02em; }
+      100% { font-size: 42px; letter-spacing: -.02em; }
+    }
+    @keyframes crossfadeOut { 0%,50% { opacity: 1; } 60%,100% { opacity: 0; } }
+    @keyframes crossfadeIn  { 0%,60% { opacity: 0; } 75%,100% { opacity: 1; } }
+    .anim-3 { position: relative; height: 96px; display: flex; align-items: center; justify-content: center; width: 100%; }
+    .anim-3 > * { position: absolute; font-family: var(--font-display); font-weight: 300; color: var(--aa-black); letter-spacing: -.03em; font-size: 68px; line-height: 1; }
+    .anim-3 .full { animation: crossfadeOut 3.2s ease-out both; }
+    .anim-3 .full em { font-style: italic; }
+    .anim-3 .short { animation: crossfadeIn 3.2s ease-out both; }
+    .dark .anim-3 > * { color: var(--aa-off-white); }
+
+    /* ============ ANIMATION 4 · TAG-BREATHE ============ */
+    /* Sustained: subtle opacity pulse on FOR ATHLETE tag under a stable wordmark */
+    @keyframes breathe { 0%,100% { opacity: 1; } 50% { opacity: .55; } }
+    .anim-4-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .anim-4-wm { font-family: var(--font-display); font-weight: 300; font-size: 58px; letter-spacing: -.03em; color: var(--aa-black); }
+    .anim-4-wm em { font-style: italic; }
+    .anim-4-tag { background: var(--aa-black); color: var(--aa-off-white); padding: 5px 12px; font-family: var(--font-eyebrow); font-weight: 700; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; animation: breathe 4s ease-in-out infinite; }
+    .dark .anim-4-wm { color: var(--aa-off-white); }
+    .dark .anim-4-tag { background: var(--aa-off-white); color: var(--aa-black); }
+
+    /* Spec block */
+    .spec { margin-top: 40px; padding: 20px 24px; background: var(--aa-white); border: 1px solid var(--aa-line); }
+    .spec .title { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; margin-bottom: 12px; }
+    .spec ul { margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.7; color: var(--fg2); }
+    .spec code { font-family: var(--font-mono); background: var(--aa-gray-50); padding: 2px 6px; font-size: 11px; color: var(--aa-black); }
+  </style>
+</head>
+<body>
+  <p class="lead">Brand collateral · animated logo · 4 presets</p>
+  <h1>Animated <em>logo.</em></h1>
+  <p style="max-width:600px;font-size:14px;line-height:1.7;color:var(--fg2);margin:0">
+    브랜드 원칙(<b>very quiet motion</b>)에 맞춰 페이드 + 서브틀 슬라이드만 사용. bounce · spring · rotation 금지. 각 프리셋 3초 이내.
+  </p>
+
+  <div class="section-title">01 · Type-build · 2.1s (첫 방문 · 인트로)</div>
+  <div class="row">
+    <div class="stage">
+      <span class="stage-label">Light</span>
+      <button class="replay" onclick="restartAnim(this, 'anim-1-l')">↻ Replay</button>
+      <div class="anim-1" id="anim-1-l">
+        <span class="p1">Athletics </span><span class="p2">Athlete</span><span class="p3"> Club</span>
+      </div>
+    </div>
+    <div class="stage dark">
+      <span class="stage-label">Dark</span>
+      <button class="replay" onclick="restartAnim(this, 'anim-1-d')">↻ Replay</button>
+      <div class="anim-1" id="anim-1-d">
+        <span class="p1">Athletics </span><span class="p2">Athlete</span><span class="p3"> Club</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">02 · Rule-reveal · 1.9s (제안서 · 발표 오프너)</div>
+  <div class="row">
+    <div class="stage">
+      <span class="stage-label">Light</span>
+      <button class="replay" onclick="restartAnim(this, 'anim-2-l')">↻ Replay</button>
+      <div class="anim-2-wrap" id="anim-2-l">
+        <div class="anim-2-wm">Athletics <em>Athlete</em> Club</div>
+        <div class="anim-2-rule"></div>
+        <div class="anim-2-tag">For Athlete.</div>
+      </div>
+    </div>
+    <div class="stage dark">
+      <span class="stage-label">Dark</span>
+      <button class="replay" onclick="restartAnim(this, 'anim-2-d')">↻ Replay</button>
+      <div class="anim-2-wrap" id="anim-2-d">
+        <div class="anim-2-wm">Athletics <em>Athlete</em> Club</div>
+        <div class="anim-2-rule"></div>
+        <div class="anim-2-tag">For Athlete.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">03 · Compress · 3.2s (풀네임 → 축약형 전환 · 스크롤 응축)</div>
+  <div class="row">
+    <div class="stage">
+      <span class="stage-label">Light</span>
+      <button class="replay" onclick="restartAnim(this, 'anim-3-l')">↻ Replay</button>
+      <div class="anim-3" id="anim-3-l">
+        <div class="full">Athletics <em>Athlete</em> Club</div>
+        <div class="short">AA Club</div>
+      </div>
+    </div>
+    <div class="stage dark">
+      <span class="stage-label">Dark</span>
+      <button class="replay" onclick="restartAnim(this, 'anim-3-d')">↻ Replay</button>
+      <div class="anim-3" id="anim-3-d">
+        <div class="full">Athletics <em>Athlete</em> Club</div>
+        <div class="short">AA Club</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">04 · Tag-breathe · 4s loop (계속 재생 · 배경 로고)</div>
+  <div class="row">
+    <div class="stage">
+      <span class="stage-label">Light</span>
+      <div class="anim-4-wrap">
+        <div class="anim-4-wm">Athletics <em>Athlete</em> Club</div>
+        <div class="anim-4-tag">For Athlete.</div>
+      </div>
+    </div>
+    <div class="stage dark">
+      <span class="stage-label">Dark</span>
+      <div class="anim-4-wrap">
+        <div class="anim-4-wm">Athletics <em>Athlete</em> Club</div>
+        <div class="anim-4-tag">For Athlete.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spec">
+    <div class="title">Motion Spec</div>
+    <ul>
+      <li><b>Easing</b>: <code>cubic-bezier(.2, .7, .2, 1)</code> (부드러운 감속). 페이드는 <code>ease-out</code>.</li>
+      <li><b>Duration</b>: 프리셋 1~3은 <b>1.9–3.2초 원샷</b>. 프리셋 4는 <b>4초 무한 루프</b>. 그 이상 길어지지 않음.</li>
+      <li><b>Delay/스태거</b>: 100 → 700 → 1200ms (반복 없이 한 번). 각 단어가 자기 시간에 자리잡음.</li>
+      <li><b>Transform</b>: <code>translateY(8px)</code>·<code>scaleX</code>·<code>opacity</code>만. rotate · skew · scale(전체) 금지.</li>
+      <li><b>Reduced motion</b>: <code>@media (prefers-reduced-motion: reduce)</code>에서 모든 애니메이션 즉시 종료 (배포 CSS에 별도 추가).</li>
+      <li><b>파일 출력</b>: 각 프리셋을 <code>.mp4</code> · <code>.webm</code> · <code>.gif</code>로 렌더 가능. Genspark 렌더 요청 시 개별 익스포트.</li>
+      <li><b>사용처</b>: 01 = 웹 오프닝 / 02 = 슬라이드 인트로 / 03 = 축약형 자연 전환 / 04 = 사이트 히어로 배경.</li>
+    </ul>
+  </div>
+
+  <script>
+    // Restart CSS animations on button click
+    function restartAnim(btn, id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const clone = el.cloneNode(true);
+      el.parentNode.replaceChild(clone, el);
+    }
+  </script>
+</body>
+</html>

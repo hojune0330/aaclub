@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Email Signature Template</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { padding: 48px; background: var(--aa-gray-50); font-family: var(--font-body-kr); }
+    h1 { font-family: var(--font-display); font-weight: 300; font-size: 36px; letter-spacing: -.02em; margin: 0 0 6px; }
+    h1 em { font-style: italic; }
+    .lead { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 0 0 24px; }
+    .row { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .row:last-of-type { border-bottom: none; }
+    .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--fg3); text-transform: uppercase; padding-top: 4px; }
+    .val { font-size: 13px; line-height: 1.6; color: var(--fg2); }
+    .val code { background: var(--aa-off-white); padding: 2px 6px; font-family: var(--font-mono); font-size: 11px; color: var(--aa-black); border: 1px solid var(--line); }
+    .sample { background: var(--aa-white); border: 1px solid var(--line); padding: 24px 28px; margin-top: 16px; }
+    .note { margin-top: 12px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; color: var(--fg3); text-transform: uppercase; }
+    /* ======================
+       ACTUAL SIGNATURE TABLE
+       ====================== */
+    table.aac-sig { border-collapse: collapse; }
+    table.aac-sig td { vertical-align: middle; padding: 0; font-family: 'Pretendard','Apple SD Gothic Neo',sans-serif; color: #0A0A0A; }
+    .aac-sig-wm { display: block; height: 26px; width: auto; }
+    .aac-sig-line { width: 1px; background: #DAD6CC; height: 44px; margin: 0 16px; }
+    .aac-sig-name { font-size: 14px; font-weight: 600; letter-spacing: -.01em; }
+    .aac-sig-role { font-size: 12px; color: #3A3A3A; font-weight: 400; margin-top: 2px; }
+    .aac-sig-meta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B6B6B; letter-spacing: 0.02em; margin-top: 8px; }
+    .aac-sig-meta a { color: #0A0A0A; text-decoration: none; }
+    .aac-sig-tag { display: inline-block; background: #0A0A0A; color: #F5F3EE; font-family: 'Archivo Narrow', sans-serif; font-weight: 700; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <p class="lead">Brand collateral · email signature v1</p>
+  <h1>Email<br/><em>signature.</em></h1>
+
+  <div class="sample">
+    <!-- COPY EVERYTHING BELOW THIS COMMENT INTO GMAIL/OUTLOOK -->
+    <table class="aac-sig" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <img class="aac-sig-wm" src="../../../2026-09-21/design-system-handoff/assets/aac-wordmark-dark.png" alt="Athletics Athlete Club" style="height:26px;width:auto;display:block;">
+        </td>
+        <td><div class="aac-sig-line" style="width:1px;background:#DAD6CC;height:44px;margin:0 16px;"></div></td>
+        <td>
+          <div class="aac-sig-name">장호준 · Hojune Jang</div>
+          <div class="aac-sig-role">Head Coach · AA CLUB</div>
+          <div class="aac-sig-meta">
+            <a href="mailto:hojune@athleticsathleteclub.kr">hojune@athleticsathleteclub.kr</a><br>
+            +82 10 0000 0000 · @athleticsathleteclub
+          </div>
+          <div class="aac-sig-tag">FOR ATHLETE.</div>
+        </td>
+      </tr>
+    </table>
+    <!-- END SIGNATURE -->
+  </div>
+
+  <p class="note">↑ 위 회색 박스 안 내용을 Gmail/Outlook 서명에 붙여넣으세요</p>
+
+  <div class="row">
+    <div class="lbl">사용법 · Gmail</div>
+    <div class="val">
+      설정 → 일반 → 서명 → <code>새로 만들기</code> → 위 샘플 영역 내용 복사 붙여넣기 → 저장.
+      <br />워드마크 이미지 경로는 <code>https://your-domain/aac-wordmark-dark.png</code> 처럼 절대 URL로 교체하세요.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">사용법 · Outlook</div>
+    <div class="val">
+      파일 → 옵션 → 메일 → 서명 → 새로 만들기 → HTML 편집 지원 안 되니 <b>스크린샷 캡처 후 이미지로 삽입</b>하거나, 서드파티 확장(예: WiseStamp) 사용.
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">교체 필드</div>
+    <div class="val">
+      <b>이름 · 역할 · 이메일 · 전화</b>만 각자 값으로 바꾸면 됩니다. 나머지는 절대 건드리지 마세요 (브랜드 통일성).
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="lbl">주의</div>
+    <div class="val">
+      <b>이모지·다른 색 · 추가 태그 금지.</b> 서명에 광고 문구·주식 정보·법률 고지 추가하지 마세요. 조용한 브랜드 원칙 유지.
+    </div>
+  </div>
+</body>
+</html>

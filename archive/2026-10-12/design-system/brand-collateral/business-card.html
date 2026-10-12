@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Business Card 인쇄 대지</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    body { padding: 32px; background: var(--aa-gray-50); }
+    /* Business card: 90 × 54 mm (KR standard) at 300dpi = 1063 × 638 px.
+       We use CSS mm units so browsers render exactly. */
+    .card {
+      width: 90mm;
+      height: 54mm;
+      background: var(--aa-off-white);
+      border: 0;
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      margin: 0 auto 12mm;
+      /* 인쇄용 안전선 시뮬 */
+      outline: 1px solid #DAD6CC;
+    }
+    .card.dark { background: var(--aa-black); color: var(--aa-off-white); }
+    /* Bleed guides (only in preview, remove for actual print) */
+    .card::before, .card::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+    }
+    /* Safe zone: 3mm from edges */
+    .card::before {
+      inset: 3mm;
+      border: 0.3mm dashed rgba(107, 117, 113, 0.4);
+    }
+
+    /* ============ FRONT ============ */
+    .front { padding: 6mm 7mm; display: flex; flex-direction: column; justify-content: space-between; }
+    .front .wm { display: block; width: 42mm; height: auto; }
+    .front .name { font-family: var(--font-body-kr); font-size: 12pt; font-weight: 600; letter-spacing: -.01em; color: var(--aa-black); margin: 0; }
+    .front .role { font-family: var(--font-body-kr); font-size: 8.5pt; color: var(--fg2); margin-top: 1mm; }
+    .front .meta { font-family: var(--font-mono); font-size: 7pt; letter-spacing: .04em; color: var(--fg3); line-height: 1.55; margin-top: 2.5mm; }
+    .front .meta a { color: var(--aa-black); text-decoration: none; }
+    .front .code { position: absolute; top: 6mm; right: 7mm; font-family: var(--font-mono); font-size: 6pt; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; }
+
+    /* ============ BACK ============ */
+    .back { padding: 8mm; display: flex; align-items: center; justify-content: center; text-align: center; }
+    .back .disp { font-family: var(--font-display); font-size: 20pt; font-weight: 300; letter-spacing: -0.02em; line-height: 1; margin: 0; color: var(--aa-off-white); }
+    .back .disp em { font-style: italic; color: var(--aa-off-white); }
+    .back .tag { position: absolute; bottom: 6mm; left: 7mm; font-family: var(--font-mono); font-size: 6pt; letter-spacing: .18em; color: var(--aa-off-white); opacity: .6; text-transform: uppercase; }
+    .back .season { position: absolute; bottom: 6mm; right: 7mm; font-family: var(--font-mono); font-size: 6pt; letter-spacing: .12em; color: var(--aa-off-white); opacity: .6; text-transform: uppercase; }
+
+    /* Header / meta */
+    .lead { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 0 0 8px; text-align: center; }
+    h1 { font-family: var(--font-display); font-weight: 300; font-size: 28px; letter-spacing: -.02em; margin: 0 0 20px; text-align: center; }
+    h1 em { font-style: italic; }
+    .side { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--fg3); text-transform: uppercase; text-align: center; margin: 4px 0 24px; }
+    .spec { max-width: 90mm; margin: 24px auto 0; padding: 12px 16px; border: 1px solid var(--line); background: var(--aa-off-white); font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em; color: var(--fg3); line-height: 1.6; text-transform: uppercase; }
+
+    @media print {
+      body { background: transparent; padding: 0; }
+      .lead, h1, .side, .spec, .card::before { display: none; }
+      .card { outline: none; margin: 0; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+  <p class="lead">Print artwork · v1 · design sample</p>
+  <h1>Business <em>card.</em></h1>
+  <p class="side">90 × 54 mm · 재단선 outline · 안전선 dashed (인쇄 시 제거)<br>디자인 예시 · 이름·연락처는 확인 전</p>
+
+  <!-- FRONT -->
+  <div class="card front">
+    <div class="code">AAC · SAMPLE</div>
+    <img class="wm" src="../assets/logos/AA-CLUB_SHORT_black_1x.png" alt="AA Club · SHORT SF2">
+    <div>
+      <div class="name">장호준 · Hojune Jang</div>
+      <div class="role">Head Coach — 육상 · 러닝</div>
+      <div class="meta">
+        <a href="mailto:hojune@athleticsathleteclub.kr">hojune@athleticsathleteclub.kr</a><br>
+        +82 10 0000 0000<br>
+        @athleticsathleteclub · athleticsathleteclub.kr
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK -->
+  <div class="card back dark">
+    <p class="disp">for<br/><em>Athlete.</em></p>
+    <div class="tag">Athletics Athlete Club</div>
+    <div class="season">Seoul · Est. 2026</div>
+  </div>
+
+  <div class="spec">
+    <b style="color:var(--aa-black)">SPEC</b>
+    · Trim 90 × 54 mm · Bleed +3 mm each side (표시 안 됨, 인쇄소 요청 시 추가)<br>
+    · Safe zone: 3 mm 안쪽 (dashed 라인)<br>
+    · Paper: 소프트 매트 300gsm 이상 권장 (질감이 warm off-white와 잘 어울림)<br>
+    · Colors: Front off-white #F5F3EE · Back black #0A0A0A · Text #0A0A0A/#F5F3EE<br>
+    · Logo: SHORT SF2 · 42 mm (MAIN 최소 220px보다 작은 슬롯)<br>
+    · Fonts: Fraunces (display) · Pretendard (KR) · IBM Plex Mono (meta) — 인쇄 시 outline 변환<br>
+    · 파일 넘길 때: PDF/X-1a 300dpi, CMYK 변환 (컨버트 후 K값 90 이상 확인)
+  </div>
+</body>
+</html>

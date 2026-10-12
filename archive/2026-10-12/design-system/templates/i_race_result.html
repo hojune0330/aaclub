@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Race Result Report</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/StatBlock.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/NotesRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = (page) => [
+      { k: "Document", v: "Race Report · 샘플" },
+      { k: "Program",  v: "AAC · 400m" },
+      { k: "Audience", v: "Athlete · Coach" },
+      { k: "Page",     v: `${String(page).padStart(2, "0")} / 02` },
+    ];
+
+    function RaceResult() {
+      return (
+        <>
+        <Page>
+          <MetaRail items={META(1)} />
+          <PageHeader code="AAC-RR · 026" />
+
+          <EditorialHero
+            eyebrow="Race 026 · 400m final"
+            display="Personal best"
+            displayEm="by 0.33."
+            h1="장호준 · 46.82 · 전국 육상 선수권 결승"
+          />
+
+          {/* Meta bar */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1.3fr 1fr 1fr 1fr",
+            borderTop: "1px solid var(--line)",
+            borderBottom: "1px solid var(--line)",
+            marginBottom: 24,
+          }}>
+            {[
+              { k: "Meet",     v: "전국 육상 선수권 · 결승" },
+              { k: "Date",     v: "2026 · 08 · 28" },
+              { k: "Location", v: "잠실 종합운동장" },
+              { k: "Weather",  v: "24°C · 습도 62%" },
+            ].map((it, i, arr) => (
+              <div key={i} style={{
+                padding: `12px ${i === arr.length - 1 ? 0 : 12}px 12px ${i === 0 ? 0 : 12}px`,
+                borderRight: i === arr.length - 1 ? "none" : "1px solid var(--line)",
+              }}>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>{it.k}</div>
+                <div style={{ marginTop: 4, fontSize: 12, color: "var(--ink)" }}>{it.v}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Big stats */}
+          <SectionHead h2="결과 요약" right="RESULT" />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--line)", borderBottom: "1px solid var(--line)" }}>
+            {[
+              { figure: "46.82", label: "Final time", sublabel: "PB · −0.33 vs 47.15" },
+              { figure: "1st",   label: "Placement",  sublabel: "OF 8 finalists" },
+              { figure: "Lane 4", label: "Lane",      sublabel: "Prime middle" },
+              { figure: "+0.14", label: "React time", sublabel: "Ok · target < 0.18" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: "16px 16px 16px 0", borderRight: i < 3 ? "1px solid var(--line)" : "none", paddingLeft: i === 0 ? 0 : 16 }}>
+                <StatBlock {...s} />
+              </div>
+            ))}
+          </div>
+
+          <PageFooter
+            left={<><strong>샘플 출처</strong> · KAAF Official Result · 2026-08-28</>}
+            right={<>Signed by · Head Coach</>}
+          />
+        </Page>
+        <Page>
+          <MetaRail items={META(2)} />
+          <PageHeader code="AAC-RR · 026" />
+          <SectionHead h2="장호준 · 경기 리뷰 · 계속" right="RACE 026 · 400M" />
+
+          {/* Splits */}
+          <SectionHead h2="스플릿" right="4 × 100M SEGMENTS" />
+          <DataTable
+            ariaLabel="구간별 스플릿"
+            columns={[
+              { key: "seg",  header: "Segment", width: "16%", mono: true },
+              { key: "time", header: "Time",    width: "18%", align: "right" },
+              { key: "cum",  header: "Cumul.",  width: "18%", align: "right" },
+              { key: "hr",   header: "HR peak", width: "16%", align: "right" },
+              { key: "note", header: "Note",    width: "32%", muted: true },
+            ]}
+            rows={[
+              { seg: "0–100m",   time: "11.42", cum: "11.42",  hr: "168", note: "출발 반응 좋음, 가속 안정" },
+              { seg: "100–200m", time: "10.98", cum: "22.40",  hr: "181", note: "최고 속도 구간 · 폼 유지" },
+              { seg: "200–300m", time: "11.68", cum: "34.08",  hr: "190", note: "커브 진입 각도 살짝 넓음" },
+              { seg: "300–400m", time: "12.74", cum: "46.82",  hr: "196", note: "라스트 60m 어택 성공" },
+            ]}
+          />
+
+          {/* Coach review */}
+          <div style={{ marginTop: 28, padding: "20px 24px", background: "var(--surface-muted)", borderTop: "1px solid var(--ink)", borderBottom: "1px solid var(--line)" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.1em", color: "var(--ink-3)", textTransform: "uppercase", marginBottom: 8 }}>Coach Review</div>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 18, lineHeight: 1.4, color: "var(--ink)", fontStyle: "italic", letterSpacing: "-0.01em" }}>
+              "3번 구간의 커브 진입 각도만 잡히면 다음 시즌 46.5까지 노려볼 만하다. 다음 주는 커브 워크에 집중, 강도는 오늘의 80%로 유지."
+            </p>
+            <div style={{ marginTop: 12, display: "flex", justifyContent: "space-between", fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase" }}>
+              <div>Head Coach · Jang Hojune</div>
+              <div>Signed —</div>
+            </div>
+          </div>
+
+          {/* Next steps */}
+          <NotesRail notes={[
+            { label: "NEXT MEET",    value: "코리안 오픈 · 09/26",  desc: "결과 리뷰 완료, 컨디션 회복 우선." },
+            { label: "TRAINING",     value: "커브 워크 3세션",     desc: "다음주 화·목·토 오후. 강도 80%." },
+            { label: "MEDICAL",      value: "이슈 없음",           desc: "무릎 미세 통증 → 소염만 처방, 훈련 지장 없음." },
+          ]} />
+
+          <PageFooter
+            left={<><strong>샘플 출처</strong> · KAAF Official Result · 2026-08-28</>}
+            right={<>Signed by · Head Coach</>}
+          />
+        </Page>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<RaceResult />);
+  </script>
+</body>
+</html>

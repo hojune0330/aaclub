@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Athletics Athlete Club — for Athlete.</title>
+  <meta name="description" content="육상 선수를 위한 피드백 · 트레이닝 · 소속 · 매니지먼트 클럽. for Athlete.">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--aa-off-white); color: var(--aa-black); }
+
+    /* ============ TOP NAV ============ */
+    .nav { position: sticky; top: 0; z-index: 10; background: var(--aa-off-white); border-bottom: 1px solid var(--aa-line); }
+    .nav-inner { max-width: 1360px; margin: 0 auto; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: block; width: 220px; height: auto; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: var(--aa-black); text-decoration: none; font-family: var(--font-eyebrow); font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; transition: opacity 100ms; }
+    .nav-links a:hover { opacity: .5; }
+    .nav-cta { background: var(--aa-black); color: var(--aa-off-white); padding: 8px 14px; font-family: var(--font-eyebrow); font-weight: 700; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; transition: background 100ms; }
+    .nav-cta:hover { background: var(--aa-navy); }
+    .mockup-note { max-width: 1360px; margin: 0 auto; padding: 14px 48px; border-bottom: 1px solid var(--aa-line); color: var(--fg2); font-family: var(--font-body-kr); font-size: 13px; line-height: 1.6; }
+
+    section { max-width: 1360px; margin: 0 auto; padding: 96px 48px; }
+    .section-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: var(--fg3); text-transform: uppercase; margin: 0 0 20px; }
+    .section-title { font-family: var(--font-display); font-weight: 300; font-size: 68px; letter-spacing: -.03em; line-height: .98; margin: 0 0 24px; }
+    .section-title em { font-style: italic; color: var(--aa-navy); }
+
+    /* ============ HERO ============ */
+    .hero { padding-top: 120px; padding-bottom: 160px; border-bottom: 1px solid var(--aa-line); }
+    .hero .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .18em; color: var(--aa-black); text-transform: uppercase; margin: 0 0 32px; }
+    .hero .disp { font-family: var(--font-display); font-weight: 300; font-size: 148px; line-height: .92; letter-spacing: -.04em; margin: 0; max-width: 1200px; }
+    .hero .disp em { font-style: italic; color: var(--aa-navy); }
+    .hero .lead { margin: 44px 0 0; max-width: 560px; font-family: var(--font-body-kr); font-size: 18px; line-height: 1.65; color: var(--fg2); }
+    .hero .locator { position: absolute; right: 48px; bottom: 40px; text-align: right; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--fg3); text-transform: uppercase; line-height: 1.5; }
+    .hero-wrap { position: relative; }
+    .hero-tag { display: inline-block; margin-top: 44px; background: var(--aa-black); color: var(--aa-off-white); padding: 7px 14px; font-family: var(--font-eyebrow); font-weight: 700; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
+
+    /* ============ PILLARS ============ */
+    .pillars-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 40px; border-top: 1px solid var(--aa-line); border-bottom: 1px solid var(--aa-line); }
+    .pillar { padding: 40px 24px; border-right: 1px solid var(--aa-line); text-align: center; }
+    .pillar:last-child { border-right: 0; }
+    .pillar img { width: 96px; height: 96px; object-fit: contain; mix-blend-mode: multiply; display: block; margin: 0 auto 20px; }
+    .pillar .num { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; }
+    .pillar .name { font-family: var(--font-eyebrow); font-size: 14px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; margin: 6px 0 4px; }
+    .pillar .kr { font-family: var(--font-body-kr); font-size: 13px; color: var(--fg2); margin-bottom: 16px; }
+    .pillar .desc { font-size: 12px; line-height: 1.65; color: var(--fg2); text-align: left; max-width: 220px; margin: 0 auto; }
+
+    /* ============ ATHLETES ============ */
+    .athletes { background: var(--aa-white); border-top: 1px solid var(--aa-line); border-bottom: 1px solid var(--aa-line); }
+    .athlete-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 44px; }
+    .athlete-card { padding-bottom: 20px; border-bottom: 1px solid var(--aa-line); }
+    .athlete-photo { aspect-ratio: 4/5; background: var(--aa-off-white); border: 1px solid var(--aa-line); display: flex; align-items: center; justify-content: center; text-align: center; }
+    .athlete-photo span { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; }
+    .athlete-meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; }
+    .athlete-name { font-family: var(--font-display); font-weight: 400; font-size: 26px; letter-spacing: -.02em; margin: 0; }
+    .athlete-no { font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: var(--fg3); }
+    .athlete-event { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--fg2); text-transform: uppercase; margin-top: 6px; }
+    .athlete-pb { font-family: var(--font-mono); font-size: 14px; color: var(--aa-navy); margin-top: 8px; font-variant-numeric: tabular-nums; }
+
+    /* ============ MANIFESTO ============ */
+    .manifesto { background: var(--aa-ink); color: var(--aa-off-white); padding: 140px 48px; }
+    .manifesto .inner { max-width: 1360px; margin: 0 auto; }
+    .manifesto .num { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: rgba(245,243,238,.5); text-transform: uppercase; margin: 0 0 32px; }
+    .manifesto .quote { font-family: var(--font-display); font-weight: 300; font-size: 68px; line-height: 1.15; letter-spacing: -.02em; margin: 0; max-width: 1100px; }
+    .manifesto .quote em { font-style: italic; }
+    .manifesto .signature { margin-top: 44px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; color: rgba(245,243,238,.7); text-transform: uppercase; }
+
+    /* ============ SPONSOR CTA ============ */
+    .sponsor { background: var(--aa-off-white); border-top: 1px solid var(--aa-line); border-bottom: 1px solid var(--aa-line); }
+    .sponsor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 40px; }
+    .sponsor-open { border: 1px solid var(--aa-line); padding: 28px; background: var(--aa-white); }
+    .sponsor-open h3 { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 26px; letter-spacing: -.02em; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--aa-line); }
+    .sponsor-open ul { list-style: none; padding: 0; margin: 0; }
+    .sponsor-open li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--aa-line); font-size: 14px; }
+    .sponsor-open li:last-child { border-bottom: none; }
+    .sponsor-open li .status { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--aa-navy); }
+    .sponsor-open li .status.closed { color: var(--fg3); }
+    .sponsor-cta { display: inline-block; margin-top: 24px; background: var(--aa-black); color: var(--aa-off-white); padding: 12px 20px; font-family: var(--font-eyebrow); font-weight: 700; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; transition: background 100ms; }
+    .sponsor-cta:hover { background: var(--aa-navy); }
+
+    /* ============ JOURNAL ============ */
+    .journal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+    .journal-card { padding: 20px 0; border-top: 1px solid var(--aa-black); border-bottom: 1px solid var(--aa-line); }
+    .journal-card .date { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; color: var(--fg3); text-transform: uppercase; }
+    .journal-card h3 { font-family: var(--font-display); font-weight: 400; font-size: 22px; letter-spacing: -.02em; line-height: 1.3; margin: 12px 0; color: var(--aa-black); }
+    .journal-card p { margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: var(--fg2); }
+    .journal-card a { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: var(--aa-black); text-decoration: none; border-bottom: 1px solid var(--aa-black); text-transform: uppercase; padding-bottom: 2px; }
+    .journal-card a:hover { opacity: .5; }
+
+    /* ============ FOOTER ============ */
+    footer.site { background: var(--aa-ink); color: var(--aa-off-white); padding: 80px 48px 40px; }
+    footer.site .inner { max-width: 1360px; margin: 0 auto; }
+    footer.site .top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(245,243,238,.15); }
+    footer.site .brand-line { font-family: var(--font-display); font-weight: 300; font-size: 44px; letter-spacing: -.02em; line-height: 1; margin: 0 0 20px; }
+    footer.site .brand-line em { font-style: italic; }
+    footer.site .brand-desc { font-size: 13px; line-height: 1.65; color: rgba(245,243,238,.7); max-width: 320px; }
+    footer.site .col-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em; color: rgba(245,243,238,.5); text-transform: uppercase; margin: 0 0 16px; }
+    footer.site ul { list-style: none; padding: 0; margin: 0; }
+    footer.site li { padding: 4px 0; font-size: 13px; }
+    footer.site a { color: var(--aa-off-white); text-decoration: none; transition: opacity 100ms; }
+    footer.site a:hover { opacity: .6; }
+    footer.site .bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; color: rgba(245,243,238,.5); text-transform: uppercase; }
+
+    @media (max-width: 1000px) {
+      .nav-links { display: none; }
+    }
+    @media (max-width: 700px) {
+      .nav-inner { padding: 18px 24px; }
+      .nav-logo { width: 120px; }
+      .mockup-note { padding: 14px 24px; }
+    }
+    @media (max-width: 900px) {
+      .pillars-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .athlete-grid,.journal-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .sponsor-grid { grid-template-columns: minmax(0,1fr); gap:32px; }
+      footer.site .top { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap:32px; }
+    }
+    @media (max-width: 600px) {
+      section { padding:56px 24px; }
+      .hero { padding-top:64px; padding-bottom:96px; }
+      .hero .disp { font-size:68px; overflow-wrap:anywhere; }
+      .hero .lead { font-size:16px; }
+      .hero .locator { position:static; margin-top:32px; text-align:left; }
+      .section-title { font-size:44px; }
+      .pillars-grid,.athlete-grid,.journal-grid { grid-template-columns:minmax(0,1fr); }
+      .pillar { border-right:0; border-bottom:1px solid var(--aa-line); }
+      .pillar:last-child { border-bottom:0; }
+      .pillar .desc { max-width:none; }
+      .manifesto { padding:64px 24px; }
+      .manifesto .quote { font-size:36px; }
+      footer.site { padding:48px 24px 28px; }
+      footer.site .top { grid-template-columns:minmax(0,1fr); gap:24px; }
+      footer.site .bottom { flex-wrap:wrap; gap:12px; }
+      .foot-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+      .foot-bottom { flex-wrap:wrap; gap:12px; }
+      .nav-inner { gap:16px; }
+      .nav-cta { font-size:9px; letter-spacing:.1em; }
+      .sponsor-open li { flex-wrap:wrap; gap:8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" aria-label="Athletics Athlete Club · top">
+      <picture>
+        <source media="(max-width: 700px)" srcset="../assets/logos/AA-CLUB_SHORT_black_1x.png">
+        <img src="../assets/logos/AA-CLUB_MAIN_black_1x.png" alt="Athletics Athlete Club" class="nav-logo">
+      </picture>
+    </a>
+    <div class="nav-links">
+      <a href="#pillars">Pillars</a>
+      <a href="#athletes">Athletes</a>
+      <a href="#manifesto">Manifesto</a>
+      <a href="#sponsor">Sponsor</a>
+      <a href="#journal">Journal</a>
+    </div>
+    <a href="#sponsor" class="nav-cta">For Athlete.</a>
+  </div>
+</nav>
+<p class="mockup-note">디자인 목업 · 선수명·기록·경기·운영 내용은 예시입니다. 실제 자료 확인과 교체 후 사용하세요.</p>
+
+<!-- ============ HERO ============ -->
+<section class="hero hero-wrap" id="top">
+  <p class="eyebrow">Athletics Athlete Club · Seoul · Est. 2026</p>
+  <p class="disp">Run with<br/>
+    <em>the athletes</em><br/>
+    who take running<br/>
+    seriously.</p>
+  <p class="lead">혼자 뛰던 선수가 함께 성장할 수 있도록. 피드백 · 트레이닝 · 소속 · 매니지먼트를 갖춘 육상 · 러닝 선수 클럽.</p>
+  <span class="hero-tag">For Athlete.</span>
+  <div class="locator">LAT 37.51<br/>LON 127.08<br/>SS26 · N° 001</div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section id="pillars">
+  <p class="section-num">02 · 06 · Pillars</p>
+  <h2 class="section-title">Four <em>pillars.</em></h2>
+  <p style="max-width:600px;font-size:15px;line-height:1.7;color:var(--fg2);margin:0">
+    AAC의 활동은 네 개의 축 위에서 이루어집니다. 각각 다른 시간대에, 다른 방식으로 선수의 하루에 자리잡습니다.
+  </p>
+
+  <div class="pillars-grid">
+    <div class="pillar">
+      <img src="../../../2026-09-21/design-system-handoff/assets/icons/pillars/feedback.png" alt="Feedback">
+      <div class="num">01</div>
+      <div class="name">Feedback</div>
+      <div class="kr">피드백</div>
+      <div class="desc">코치와 선수 사이 대화. 훈련 · 경기 · 회복 각 시점의 폼과 판단을 기록하고 방향을 잡습니다.</div>
+    </div>
+    <div class="pillar">
+      <img src="../../../2026-09-21/design-system-handoff/assets/icons/pillars/training.png" alt="Training">
+      <div class="num">02</div>
+      <div class="name">Training</div>
+      <div class="kr">트레이닝</div>
+      <div class="desc">기존 소속의 훈련을 존중하며, 월 12회 이상 코치 세션으로 방향을 함께 잡습니다.</div>
+    </div>
+    <div class="pillar">
+      <img src="../../../2026-09-21/design-system-handoff/assets/icons/pillars/belonging.png" alt="Belonging">
+      <div class="num">03</div>
+      <div class="name">Belonging</div>
+      <div class="kr">소속</div>
+      <div class="desc">혼자 뛰던 선수가 함께 성장할 수 있는 울타리. 팀·라이벌·친구 그 사이 어딘가.</div>
+    </div>
+    <div class="pillar">
+      <img src="../../../2026-09-21/design-system-handoff/assets/icons/pillars/management.png" alt="Management">
+      <div class="num">04</div>
+      <div class="name">Management</div>
+      <div class="kr">매니지먼트</div>
+      <div class="desc">계약·스폰서·미디어·정산까지. 선수가 뛰는 데만 집중할 수 있도록 나머지를 맡습니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATHLETES ============ -->
+<section class="athletes" id="athletes">
+  <p class="section-num">03 · 06 · Athletes</p>
+  <h2 class="section-title">Selected <em>athletes.</em></h2>
+  <p style="max-width:640px;font-size:15px;line-height:1.7;color:var(--fg2);margin:0">
+    SS26 시즌 · 육상 · 러닝 선수 카드 6인 예시. 400m부터 10000m까지, 실내부터 장애물까지. 선수명과 PB·경기명은 확인 전 샘플입니다.
+  </p>
+
+  <div class="athlete-grid">
+    <div class="athlete-card">
+      <div class="athlete-photo"><span>Portrait · 4:5</span></div>
+      <div class="athlete-meta">
+        <h3 class="athlete-name">Jang <em style="font-style:italic">Hojune</em></h3>
+        <span class="athlete-no">N° 017</span>
+      </div>
+      <div class="athlete-event">Track · 400m</div>
+      <div class="athlete-pb">PB 46.82 · KOR CH 2026</div>
+    </div>
+    <div class="athlete-card">
+      <div class="athlete-photo"><span>Portrait · 4:5</span></div>
+      <div class="athlete-meta">
+        <h3 class="athlete-name">Lee <em style="font-style:italic">Yujeong</em></h3>
+        <span class="athlete-no">N° 022</span>
+      </div>
+      <div class="athlete-event">Middle · 800m</div>
+      <div class="athlete-pb">PB 2:02.15 · Korean Open 2026</div>
+    </div>
+    <div class="athlete-card">
+      <div class="athlete-photo"><span>Portrait · 4:5</span></div>
+      <div class="athlete-meta">
+        <h3 class="athlete-name">Lee <em style="font-style:italic">Seobin</em></h3>
+        <span class="athlete-no">N° 031</span>
+      </div>
+      <div class="athlete-event">Middle · 1500m</div>
+      <div class="athlete-pb">PB 4:14.66 · Asian CH 2026</div>
+    </div>
+    <div class="athlete-card">
+      <div class="athlete-photo"><span>Portrait · 4:5</span></div>
+      <div class="athlete-meta">
+        <h3 class="athlete-name">Ha <em style="font-style:italic">Jeyoung</em></h3>
+        <span class="athlete-no">N° 044</span>
+      </div>
+      <div class="athlete-event">Long · 5000m</div>
+      <div class="athlete-pb">PB 14:22.4 · Corporate Meet 2026</div>
+    </div>
+    <div class="athlete-card">
+      <div class="athlete-photo"><span>Portrait · 4:5</span></div>
+      <div class="athlete-meta">
+        <h3 class="athlete-name">Shin <em style="font-style:italic">Minkyu</em></h3>
+        <span class="athlete-no">N° 058</span>
+      </div>
+      <div class="athlete-event">Long · 10000m</div>
+      <div class="athlete-pb">PB 29:41.2 · Spring GP 2026</div>
+    </div>
+    <div class="athlete-card">
+      <div class="athlete-photo"><span>Portrait · 4:5</span></div>
+      <div class="athlete-meta">
+        <h3 class="athlete-name">Park <em style="font-style:italic">Hyunwoo</em></h3>
+        <span class="athlete-no">N° 081</span>
+      </div>
+      <div class="athlete-event">Steeple · 3000m</div>
+      <div class="athlete-pb">PB 8:56.4 · Autumn Masters 2026</div>
+    </div>
+  </div>
+
+  <div style="margin-top:32px;text-align:right">
+    <a href="#" style="font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--aa-black);text-decoration:none;border-bottom:1px solid var(--aa-black);text-transform:uppercase;padding-bottom:2px">Sample cards · 06 →</a>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="manifesto">
+  <div class="inner">
+    <p class="num">04 · 06 · Manifesto</p>
+    <p class="quote">
+      "선수가 이미 속한 환경을 존중하며,<br/>
+      더 좋은 훈련 방향과 피드백을 제공하고,<br/>
+      함께 달릴 수 있는 <em>울타리</em>를 만듭니다."
+    </p>
+    <div class="signature">— Athletics Athlete Club · Head Coach</div>
+  </div>
+</section>
+
+<!-- ============ SPONSOR ============ -->
+<section class="sponsor" id="sponsor">
+  <p class="section-num">05 · 06 · Sponsor</p>
+  <h2 class="section-title">Run with <em>us.</em></h2>
+
+  <div class="sponsor-grid">
+    <div>
+      <p style="max-width:480px;font-size:16px;line-height:1.7;color:var(--fg2);margin:0 0 20px">
+        SS26 시즌 후원 카테고리가 열려 있습니다. 슈즈·아이웨어·영양보조 부문 문의를 환영합니다. 상세 제안서는 요청 시 발송됩니다.
+      </p>
+      <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--fg3);text-transform:uppercase;margin:0">
+        Response by · 2026 · 10 · 31
+      </p>
+      <a href="mailto:contact@athleticsathleteclub.kr" class="sponsor-cta">Request a deck →</a>
+    </div>
+
+    <div class="sponsor-open">
+      <h3>Open <em>categories.</em></h3>
+      <ul>
+        <li><span>Shoes · Spikes</span><span class="status">Open</span></li>
+        <li><span>Eyewear</span><span class="status">Open</span></li>
+        <li><span>Nutrition</span><span class="status">Open</span></li>
+        <li><span>Recovery / Wearable</span><span class="status">Open</span></li>
+        <li><span>Apparel</span><span class="status closed">Team-covered</span></li>
+        <li><span>Media Partnership</span><span class="status">Open</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNAL ============ -->
+<section id="journal">
+  <p class="section-num">06 · 06 · Journal</p>
+  <h2 class="section-title">Field <em>notes.</em></h2>
+  <p style="max-width:540px;font-size:15px;line-height:1.7;color:var(--fg2);margin:0">
+    선수·코치가 남기는 필드 노트. 훈련·경기·회복의 조용한 기록.
+  </p>
+
+  <div class="journal-grid">
+    <div class="journal-card">
+      <div class="date">2026 · 09 · 20 · Session Log</div>
+      <h3>400m 인터벌. 4번째 랩에서 폼이 무너졌다.</h3>
+      <p>강도 82%. 잠실 보조. 커브 진입 각도만 잡히면 다음 시즌 46.5까지 노려볼 만하다.</p>
+      <a href="#">Read →</a>
+    </div>
+    <div class="journal-card">
+      <div class="date">2026 · 08 · 30 · Race Report</div>
+      <h3>전국 육상 선수권 결승 · 46.82 · PB</h3>
+      <p>3번 구간의 커브 진입 각도만 잡히면 다음 시즌 46.5까지 노려볼 만하다. 다음 주는 커브 워크에 집중.</p>
+      <a href="#">Read →</a>
+    </div>
+    <div class="journal-card">
+      <div class="date">2026 · 07 · 21 · Content Reward</div>
+      <h3>개인채널 콘텐츠 참여보상 운영기준</h3>
+      <p>공동게시가 원칙입니다. 시범운영 월 최대 10만원. 신청부터 지급까지 15일 이내.</p>
+      <a href="#">Read →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="inner">
+    <div class="top">
+      <div>
+        <p class="brand-line">for<br/><em>Athlete.</em></p>
+        <p class="brand-desc">Athletics Athlete Club · Seoul · Est. 2026. 육상 · 러닝 선수를 위한 피드백 · 트레이닝 · 소속 · 매니지먼트 클럽.</p>
+      </div>
+      <div>
+        <p class="col-title">Club</p>
+        <ul>
+          <li><a href="#pillars">Pillars</a></li>
+          <li><a href="#athletes">Athletes</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#journal">Journal</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="col-title">Sponsor</p>
+        <ul>
+          <li><a href="#sponsor">Open categories</a></li>
+          <li><a href="mailto:contact@athleticsathleteclub.kr">Request a deck</a></li>
+          <li><a href="#">Annual report</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="col-title">Contact</p>
+        <ul>
+          <li><a href="mailto:contact@athleticsathleteclub.kr">contact@…</a></li>
+          <li><a href="https://instagram.com/athleticsathleteclub">@athleticsathleteclub</a></li>
+          <li>Seoul · Republic of Korea</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Athletics Athlete Club</div>
+      <div>LAT 37.51 · LON 127.08</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Document Covers & Back Cover</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    // ===== Cover 1 · General (Onboarding / Package) =====
+    function GeneralCover() {
+      return (
+        <Page>
+          <MetaRail items={[
+            { k: "Document", v: "Onboarding Pack · 샘플" },
+            { k: "Program",  v: "AA CLUB · SS26" },
+            { k: "Audience", v: "New Athlete" },
+            { k: "Page",     v: "COVER" },
+          ]} />
+          <PageHeader code="AAC-OB · v1.0" />
+
+          <div style={{ marginTop: 140 }}>
+            <p style={{ margin: "0 0 24px", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--accent)", textTransform: "uppercase" }}>
+              Welcome to AA CLUB
+            </p>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 76, fontWeight: 400, lineHeight: 0.98, letterSpacing: "-0.03em", color: "var(--ink)" }}>
+              함께<br/><em style={{ color: "var(--accent)", fontStyle: "italic" }}>달립시다.</em>
+            </p>
+            <p style={{ margin: "36px 0 0", maxWidth: 500, fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              AA CLUB에 오신 것을 환영합니다. 이 온보딩 팩에는 계약·훈련·콘텐츠 참여·정산에 관한 모든 안내가 담겨 있습니다. 궁금한 것은 담당 코치에게 언제든 물어보세요.
+            </p>
+          </div>
+
+          <div style={{
+            position: "absolute", left: 48, right: 48, bottom: 96, paddingTop: 16, borderTop: "2px solid var(--accent)",
+            display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24,
+            fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase",
+          }}>
+            <div><div>Included</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>Contract · Q&A · Reward</div></div>
+            <div><div>Delivered</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>Digital · A4 print</div></div>
+            <div><div>Contact</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>contact@athleticsathleteclub.kr</div></div>
+          </div>
+          <PageFooter left={<><strong>Athletics Athlete Club</strong> · for Athlete.</>} right="Seoul · Est. 2026" />
+        </Page>
+      );
+    }
+
+    // ===== Cover 2 · Contract =====
+    function ContractCover() {
+      return (
+        <Page>
+          <MetaRail items={[
+            { k: "Document", v: "Athlete Agreement · 샘플" },
+            { k: "Program",  v: "AA CLUB · Contract" },
+            { k: "Audience", v: "Signing Party" },
+            { k: "Page",     v: "COVER" },
+          ]} />
+          <PageHeader code="AAC-CN · v1.0" />
+
+          <div style={{ marginTop: 140 }}>
+            <p style={{ margin: "0 0 24px", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--accent)", textTransform: "uppercase" }}>
+              Athlete agreement · SS26
+            </p>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 76, fontWeight: 400, lineHeight: 0.98, letterSpacing: "-0.03em", color: "var(--ink)" }}>
+              선수<br/><em style={{ color: "var(--accent)", fontStyle: "italic" }}>계약서.</em>
+            </p>
+            <p style={{ margin: "36px 0 0", maxWidth: 500, fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              본 문서는 Athletics Athlete Club(이하 "AAC")과 아래 선수 간의 매니지먼트·트레이닝·콘텐츠 협업을 규정합니다. 서명 전에 계약 요약본을 함께 확인하세요.
+            </p>
+          </div>
+
+          <div style={{
+            position: "absolute", left: 48, right: 48, bottom: 96, paddingTop: 16, borderTop: "2px solid var(--accent)",
+            display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24,
+            fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase",
+          }}>
+            <div><div>Version</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>v1.0 · 2026 · 09</div></div>
+            <div><div>Term</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>12 months</div></div>
+            <div><div>Governing law</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>Republic of Korea</div></div>
+          </div>
+          <PageFooter left={<><strong>Confidential</strong> · 대외비 · 서명 전 열람 제한</>} right="AAC · Legal" />
+        </Page>
+      );
+    }
+
+    // ===== Cover 3 · Sponsorship (참고: template-f와 유사하지만 다른 톤) =====
+    function SponsorshipDeckCover() {
+      return (
+        <Page>
+          <MetaRail items={[
+            { k: "Document", v: "Sponsorship Deck · 샘플" },
+            { k: "Program",  v: "AA CLUB · SS26" },
+            { k: "Audience", v: "Prospective Sponsor" },
+            { k: "Page",     v: "COVER" },
+          ]} />
+          <PageHeader code="AAC-SD · v1.0" />
+
+          <div style={{ marginTop: 100 }}>
+            <p style={{ margin: "0 0 24px", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", color: "var(--accent)", textTransform: "uppercase" }}>
+              Season 2026 · Sponsorship
+            </p>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 88, fontWeight: 400, lineHeight: 0.94, letterSpacing: "-0.04em", color: "var(--ink)" }}>
+              선수가<br/>
+              <em style={{ color: "var(--accent)", fontStyle: "italic" }}>진지할 때</em><br/>
+              함께 뛰는<br/>
+              브랜드.
+            </p>
+            <p style={{ margin: "36px 0 0", maxWidth: 480, fontFamily: "var(--font-sans)", fontSize: 15, lineHeight: 1.65, color: "var(--ink-2)" }}>
+              AA CLUB이 육상 선수 9인과 SS26 시즌을 함께할 파트너를 찾고 있습니다. 슈즈·아이웨어·영양보조 카테고리가 열려 있습니다.
+            </p>
+          </div>
+
+          <div style={{
+            position: "absolute", left: 48, right: 48, bottom: 96, paddingTop: 16, borderTop: "2px solid var(--accent)",
+            display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24,
+            fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--ink-3)", textTransform: "uppercase",
+          }}>
+            <div><div>Athletes</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>9 selected</div></div>
+            <div><div>Deck length</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>18 pages</div></div>
+            <div><div>Response by</div><div style={{ color: "var(--ink)", marginTop: 4, fontSize: 15 }}>2026 · 10 · 31</div></div>
+          </div>
+          <PageFooter left={<><strong>Athletics Athlete Club</strong> · for Athlete.</>} right="contact@athleticsathleteclub.kr" />
+        </Page>
+      );
+    }
+
+    // ===== Back Cover (범용, 어느 문서든 마지막에 붙일 수 있음) =====
+    function BackCover() {
+      return (
+        <Page style={{ background: "var(--ink)", color: "var(--paper)" }}>
+          {/* Meta rail — inverted */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "1.25fr 1.15fr 0.9fr 0.55fr",
+            borderTop: "1px solid rgba(228, 226, 220, 0.2)",
+            borderBottom: "1px solid rgba(228, 226, 220, 0.2)",
+          }}>
+            {[
+              { k: "Athletics Athlete Club" },
+              { k: "for Athlete." },
+              { k: "@athleticsathleteclub" },
+              { k: "BACK" },
+            ].map((it, i, arr) => (
+              <div key={i} style={{
+                padding: `12px ${i === arr.length - 1 ? 0 : 12}px 12px ${i === 0 ? 0 : 12}px`,
+                borderRight: i === arr.length - 1 ? "none" : "1px solid rgba(228, 226, 220, 0.2)",
+                fontFamily: "var(--font-mono)",
+                fontSize: 10,
+                letterSpacing: "0.08em",
+                color: "rgba(228, 226, 220, 0.6)",
+                textTransform: "uppercase",
+                textAlign: i === arr.length - 1 ? "right" : "left",
+              }}>{it.k}</div>
+            ))}
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", minHeight: 60, borderBottom: "1px solid rgba(228, 226, 220, 0.2)" }}>
+            <img src="../../../2026-09-21/design-system-handoff/assets/aac-wordmark-light.png" alt="AAC" style={{ width: 244, display: "block" }} />
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.1em", color: "rgba(228, 226, 220, 0.6)" }}>SEOUL · EST. 2026</div>
+          </div>
+
+          {/* Center-set editorial slogan */}
+          <div style={{
+            marginTop: 180,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            textAlign: "center",
+          }}>
+            <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: 96, fontWeight: 400, lineHeight: 0.94, letterSpacing: "-0.03em", color: "var(--paper)" }}>
+              for<br/><em style={{ fontStyle: "italic" }}>Athlete.</em>
+            </p>
+          </div>
+
+          {/* Bottom locators */}
+          <div style={{
+            position: "absolute",
+            left: 48, right: 48, bottom: 48,
+            paddingTop: 16,
+            borderTop: "1px solid rgba(228, 226, 220, 0.2)",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: 24,
+            fontFamily: "var(--font-mono)",
+            fontSize: 10,
+            letterSpacing: "0.08em",
+            color: "rgba(228, 226, 220, 0.5)",
+            textTransform: "uppercase",
+          }}>
+            <div>
+              <div>Location</div>
+              <div style={{ color: "var(--paper)", marginTop: 4, fontSize: 12 }}>Seoul · Republic of Korea</div>
+            </div>
+            <div>
+              <div>Contact</div>
+              <div style={{ color: "var(--paper)", marginTop: 4, fontSize: 12 }}>contact@athleticsathleteclub.kr</div>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div>Locator</div>
+              <div style={{ color: "var(--paper)", marginTop: 4, fontSize: 12 }}>LAT 37.51 / LON 127.08</div>
+            </div>
+          </div>
+        </Page>
+      );
+    }
+
+    function App() {
+      return (
+        <>
+          <GeneralCover />
+          <ContractCover />
+          <SponsorshipDeckCover />
+          <BackCover />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>

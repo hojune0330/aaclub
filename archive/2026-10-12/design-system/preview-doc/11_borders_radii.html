@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../doc-tokens.css">
+<style>body{margin:0;padding:20px 24px;background:var(--paper)}
+.meta{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.box{padding:14px;background:var(--surface);min-height:88px;display:flex;flex-direction:column;justify-content:space-between}
+.k{font-family:var(--font-mono);font-size:10px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase}
+.hint{font-size:11px;color:var(--ink-2)}
+.b1{border:1px solid var(--line)}
+.b2{border-top:2px solid var(--accent);border-bottom:1px solid var(--line);background:var(--paper)}
+.b3{border:1px solid var(--ink)}
+.chip{display:inline-block;padding:3px 8px;background:var(--accent-wash);color:var(--accent);font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:2px}
+</style></head>
+<body>
+<div class="meta">Borders — square first · radius 0</div>
+<div class="grid">
+  <div class="box b1"><div class="k">1px hairline</div><div class="hint">--line · 기본 구분선</div></div>
+  <div class="box b2"><div class="k">2px accent top</div><div class="hint">Lead rule · 원칙 강조</div></div>
+  <div class="box b3"><div class="k">1px ink</div><div class="hint">섹션 헤드 아래 강한 선</div></div>
+</div>
+<div style="margin-top:14px;font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;color:var(--ink-3)">Radius · <span class="chip">CHIP ONLY 2PX</span> · 그 외 0</div>
+</body></html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>AAC · Content Brief</title>
+  <link rel="stylesheet" href="../doc-tokens.css">
+  <style>body { background: var(--surface-muted); margin: 0; padding: 32px 0; min-height: 100vh; }</style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script type="text/babel" src="../ui_kits/editorial-document/AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/DataTable.jsx"></script>
+  <script type="text/babel" src="../ui_kits/editorial-document/NotesRail.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const META = (page) => [
+      { k: "Document", v: "Content Brief · 샘플" },
+      { k: "Program",  v: "SS26 · Chapter 03" },
+      { k: "Audience", v: "AAC Athletes" },
+      { k: "Page",     v: `${String(page).padStart(2, "0")} / 02` },
+    ];
+
+    function ContentBrief() {
+      return (
+        <>
+        <Page>
+          <MetaRail items={META(1)} />
+          <PageHeader code="AAC-CB · 03" />
+
+          <EditorialHero
+            eyebrow="Campaign brief · 훈련의 계절"
+            display="Show up,"
+            displayEm="quietly."
+            h1="가을 훈련 · SNS 캠페인 안내"
+          />
+
+          <LeadRule label={<>보여주기 위한<br/>훈련이 아닙니다.</>}>
+            10월 한 달, 각자의 훈련 루틴에서 <b>한 컷</b>씩 남겨주세요. 극적인 순간보다 <b>매일 반복되는 조용한 순간</b>을 담습니다. 회사가 지정한 챌린지가 아니라, 각자 원하는 방식으로 자유롭게.
+          </LeadRule>
+
+          <SectionHead h2="캠페인 개요" right="OCT · 4 WEEKS" />
+          <DataTable
+            ariaLabel="캠페인 개요"
+            columns={[
+              { key: "k", header: "Field",  width: "24%", mono: true },
+              { key: "v", header: "Value",  width: "76%" },
+            ]}
+            rows={[
+              { k: "Period",   v: "2026 · 10 · 01 → 2026 · 10 · 31 (4주)" },
+              { k: "Theme",    v: "훈련의 계절 · Quiet season" },
+              { k: "Hashtags", v: "#athleticsathleteclub #forathlete #조용한훈련" },
+              { k: "Tag",      v: "@athleticsathleteclub 공동게시 원칙 (스토리는 계정 태그)" },
+              { k: "Cadence",  v: "선수당 주 2~3회 권장 (강요 없음)" },
+              { k: "Reward",   v: "월 최대 100,000원 · 참여보상 운영기준 준수" },
+            ]}
+          />
+
+          <PageFooter
+            left={<><strong>샘플 출처</strong> · AAC Content Playbook 2026 · 03</>}
+            right={<>@athleticsathleteclub</>}
+          />
+        </Page>
+        <Page>
+          <MetaRail items={META(2)} />
+          <PageHeader code="AAC-CB · 03" />
+          <SectionHead h2="가을 훈련 · SNS 캠페인 안내 · 계속" right="CAPTION · PHOTO · REVIEW" />
+          <SectionHead h2="예시 캡션 · Do" right="TONE REFERENCE" />
+          <div style={{ marginTop: 12, borderTop: "1px solid var(--line)" }}>
+            {[
+              "\"오늘 인터벌. 4번째 랩에서 폼이 무너졌다. 내일 다시.\"",
+              "\"비 오는 날. 400m × 6. 물웅덩이 세 개.\"",
+              "\"코치가 말한 '어깨 힘 빼기' — 4주째 노력 중.\"",
+              "\"쿨다운 30분. 오늘 배운 것: 참을성.\"",
+            ].map((s, i) => (
+              <div key={i} style={{
+                padding: "14px 0",
+                borderBottom: "1px solid var(--line)",
+                fontFamily: "var(--font-serif)",
+                fontSize: 18,
+                lineHeight: 1.4,
+                color: "var(--ink)",
+                fontStyle: "italic",
+                letterSpacing: "-0.01em",
+              }}>{s}</div>
+            ))}
+          </div>
+
+          <SectionHead h2="피해야 할 표현 · Don't" right="BRAND VOICE" />
+          <div style={{ marginTop: 8, borderTop: "1px solid var(--line)" }}>
+            {[
+              "\"오늘도 극한 도전! 불가능은 없다 🔥\"",
+              "\"압도적인 성장을 보여드리겠습니다.\"",
+              "\"국내 최고, 유일무이한 훈련법을 공개합니다.\"",
+              "\"이 스폰서 없이는 안 됩니다!!\"",
+            ].map((s, i) => (
+              <div key={i} style={{
+                padding: "12px 0",
+                borderBottom: "1px solid var(--line)",
+                fontSize: 15,
+                color: "var(--ink-3)",
+                textDecoration: "line-through",
+                textDecorationColor: "var(--line)",
+              }}>{s}</div>
+            ))}
+          </div>
+
+          <NotesRail notes={[
+            { label: "PHOTO", value: "1 컷 원칙", desc: "여러 장은 캐러셀. 자연광·warm·조용한 프레임." },
+            { label: "CAPTION", value: "3 문장 이하", desc: "본인 관점 짧게. 이모지·느낌표·해시태그 남발 금지." },
+            { label: "REVIEW", value: "필수 아님", desc: "궁금하면 담당 코치에게 초안 공유. 승인 필요 없음." },
+          ]} />
+
+          <PageFooter
+            left={<><strong>샘플 출처</strong> · AAC Content Playbook 2026 · 03</>}
+            right={<>@athleticsathleteclub</>}
+          />
+        </Page>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<ContentBrief />);
+  </script>
+</body>
+</html>

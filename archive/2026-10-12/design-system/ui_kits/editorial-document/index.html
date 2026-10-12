@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="design-system-snapshot" content="2026-10-12">
+  <title>AAC Editorial Document — UI Kit</title>
+  <link rel="stylesheet" href="../../doc-tokens.css">
+  <style>
+    body {
+      background: var(--surface-muted);
+      margin: 0;
+      padding: 32px 0;
+      min-height: 100vh;
+    }
+    .toolbar {
+      max-width: 794px;
+      margin: 0 auto 20px;
+      padding: 12px 16px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--ink-3);
+      text-transform: uppercase;
+    }
+    .toolbar .tabs { display: flex; gap: 0; }
+    .toolbar button {
+      appearance: none;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-right: 0;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      cursor: pointer;
+    }
+    .toolbar button:last-child { border-right: 1px solid var(--line); }
+    .toolbar button[aria-pressed="true"] {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+    .toolbar button:hover:not([aria-pressed="true"]) { color: var(--ink); }
+    #app { display: block; }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <p style="margin:0 auto 20px;max-width:794px;font-family:var(--font-sans);font-size:15px;color:var(--ink-3)">문서 컴포넌트 디자인 예시 · 조건과 금액은 샘플</p>
+  <div class="toolbar">
+    <div>AAC-CR · v1.0 · Operating Guide</div>
+    <div class="tabs">
+      <button id="tab1" aria-pressed="true" onclick="window.__setPage(1)">Page 01</button>
+      <button id="tab2" aria-pressed="false" onclick="window.__setPage(2)">Page 02</button>
+      <button id="tabBoth" aria-pressed="false" onclick="window.__setPage(0)">Both</button>
+    </div>
+  </div>
+  <div id="app"></div>
+
+  <script type="text/babel" src="AACWordmark.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/MetaRail.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/PageHeader.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/EditorialHero.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/LeadRule.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/SectionHead.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/RewardTable.jsx"></script>
+  <script type="text/babel" src="NotesRail.jsx"></script>
+  <script type="text/babel" src="Timeline.jsx"></script>
+  <script type="text/babel" src="Conditions.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/PageFooter.jsx"></script>
+  <script type="text/babel" src="../../../../2026-09-21/design-system-handoff/components/editorial-document/Page.jsx"></script>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const META = [
+      { k: "Document", v: "Operating Guide" },
+      { k: "Program",  v: "AAC Content Reward" },
+      { k: "Audience", v: "AAC Athletes" },
+    ];
+
+    const REWARDS = [
+      { type: "사진 게시물 1–2장",  rule: "공동게시 또는 사전 예외승인",  amount: "10,000원" },
+      { type: "사진 게시물 3–7장",  rule: "공동게시 또는 사전 예외승인",  amount: "15,000원" },
+      { type: "사진 게시물 8장 이상", rule: "공동게시 또는 사전 예외승인",  amount: "20,000원" },
+      { type: "일반 릴스",           rule: "공동게시 또는 사전 예외승인",  amount: "20,000원" },
+      { type: "유행 챌린지 릴스",     rule: "회사가 사전 지정·승인한 챌린지", amount: "25,000원" },
+      { type: "스토리 태그",         rule: "계정 태그가 보이는 캡처 제출",  amount: "1,000원" },
+    ];
+
+    const NOTES = [
+      { label: "DUPLICATION",    value: "최고액 1건",   desc: "같은 콘텐츠는 가장 높은 한 항목만 인정합니다." },
+      { label: "STORY LIMIT",    value: "월 10건",      desc: "스토리 태그 보상의 월별 한도입니다." },
+      { label: "MONTHLY LIMIT",  value: "월 100,000원", desc: "선수 1인 기준 시범운영 총 한도입니다." },
+    ];
+
+    const STEPS = [
+      { title: "게시물 업로드",  time: "POSTING",         body: <>피드·릴스는 공동게시 승인 후 공개합니다. 회사가 사전 승인한 경우 개별·단독 업로드도 인정합니다. 스토리는 계정 태그가 보이도록 게시합니다.</> },
+      { title: "보상 신청",      time: "다음 달 5일까지",  body: <>지정 신청서에 <strong>게시물 직접 링크와 증빙 캡처</strong>를 붙여 회사가 지정한 이메일 또는 카카오톡으로 제출합니다.</> },
+      { title: "검토·보완",      time: "다음 달 10일까지", body: <>회사가 신청 내용을 검토합니다. 보완이 필요한 경우 <strong>1회 보완 기회</strong>를 제공합니다.</> },
+      { title: "승인금 지급",    time: "다음 달 15일까지", body: <>승인된 금액을 지급합니다. 지급일이 휴일이면 다음 영업일에 지급할 수 있으며, 표시 금액은 <strong>세전 금액</strong>입니다.</> },
+    ];
+
+    const CONDS = [
+      { h: "공개 유지 및 심사", p: "심사 시 공개 상태여야 하며 게시일부터 30일 이상 공개를 유지합니다. 삭제·비공개 전환 시 미지급분이 지급되지 않을 수 있습니다." },
+      { h: "권리와 별도 제작비", p: "보상 지급만으로 저작권·채널 소유권이 이전되지 않습니다. 회사와 별도 콘텐츠를 제작하는 경우 출연료·촬영·편집료 등을 사전 합의로 추가 지급할 수 있습니다." },
+    ];
+
+    function Page01() {
+      return (
+        <Page>
+          <MetaRail items={[...META, { k: "Page", v: "01 / 02" }]} />
+          <PageHeader basePath="../../" />
+          <EditorialHero
+            eyebrow="Personal channel · participation reward"
+            display="Participation,"
+            displayEm="clearly rewarded."
+            h1="개인채널 콘텐츠 참여보상"
+          />
+          <LeadRule label={<>공동게시가<br/>원칙입니다.</>}>
+            피드·릴스는 <b>@athleticsathleteclub</b> 공동게시가 실제 승인되어 공개된 경우 인정합니다. 다만 회사가 사전에 승인한 경우에는 개별·단독 업로드도 인정합니다.
+          </LeadRule>
+          <SectionHead h2="건별 보상 기준" right="AMOUNT · BEFORE TAX" />
+          <RewardTable rows={REWARDS} />
+          <NotesRail notes={NOTES} />
+          <PageFooter
+            left={<><strong>Source</strong> · 11_AAC_개인채널_콘텐츠_참여보상_운영기준</>}
+            right={<>요약본과 원문이 다를 경우 원문이 우선합니다.</>}
+          />
+        </Page>
+      );
+    }
+
+    function Page02() {
+      return (
+        <Page>
+          <MetaRail items={[...META, { k: "Page", v: "02 / 02" }]} />
+          <PageHeader basePath="../../" />
+          <EditorialHero
+            eyebrow="Application · review · settlement"
+            display="Apply, review,"
+            displayEm="receive."
+            h1="신청 및 정산 절차"
+          />
+          <Timeline steps={STEPS} />
+          <Conditions items={CONDS} />
+          <LeadRule label={<>접수완료<br/>회신 확인</>} style={{ marginTop: 20 }}>
+            회사가 ‘접수완료’라고 회신한 때 신청이 접수된 것으로 봅니다. 안전·법령·저작권·소속기관·후원사 규정을 위반한 콘텐츠는 보상 대상이 아닙니다.
+          </LeadRule>
+          <PageFooter
+            left={<><strong>Source</strong> · 11_AAC_개인채널_콘텐츠_참여보상_운영기준</>}
+            right={<>신청서 · 12_AAC_개인채널_콘텐츠_보상_신청서</>}
+          />
+        </Page>
+      );
+    }
+
+    function App() {
+      const [page, setPage] = useState(() => {
+        const v = Number(localStorage.getItem("aac-doc-page"));
+        return Number.isFinite(v) ? v : 1;
+      });
+      useEffect(() => {
+        localStorage.setItem("aac-doc-page", String(page));
+        for (const [id, val] of [["tab1", 1], ["tab2", 2], ["tabBoth", 0]]) {
+          const el = document.getElementById(id);
+          if (el) el.setAttribute("aria-pressed", page === val ? "true" : "false");
+        }
+      }, [page]);
+      useEffect(() => { window.__setPage = (p) => setPage(p); }, []);
+      return (
+        <>
+          {(page === 0 || page === 1) && <Page01 />}
+          {(page === 0 || page === 2) && <Page02 />}
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>
